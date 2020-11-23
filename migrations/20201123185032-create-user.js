@@ -12,7 +12,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       pin: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        unique:true
       },
       manager: {
         type: Sequelize.BOOLEAN
