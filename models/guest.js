@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-    }
+      Guest.hasMany(models.Item)
+      Guest.belongsTo(models.Table)    }
   };
   Guest.init({
     seat: DataTypes.INTEGER
