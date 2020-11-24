@@ -1,5 +1,5 @@
 let menuData = {
-    Appetizers:[
+    Apps:[
             {
         name: 'GRILLED CHICKEN WONTON TACOS',
         price: 8.49,
