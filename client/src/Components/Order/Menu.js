@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import menuData from '../../data'
 import MenuItem from './MenuItem'
 import { Accordion, Icon } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAccordionIndex } from '../../redux/actions';
+import 'semantic-ui-css/semantic.min.css';
 
 
 
@@ -22,7 +23,7 @@ export default function Menu(props) {
     <Accordion.Title
           active={accordionIndex === props.index}
           index={props.index}
-          onClick={handleClick(props.index)}
+          onClick={() => handleClick(props.index)}
         >
       <h1>{props.title}<Icon name='dropdown' /></h1>
       </Accordion.Title>
