@@ -17,6 +17,7 @@ function App() {
         <Route exact path='/users/dashboard' component={Dashboard}/>
       </Switch>
     </>
+
   );
 }
 
