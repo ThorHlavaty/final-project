@@ -8,7 +8,7 @@ export default function Registration() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    axios.post('users/register',{
+    axios.post('/users/register',{
       name,
       pin
     })
@@ -30,16 +30,16 @@ export default function Registration() {
 
   return (
     <div>
-      <form action="/users/register" method='POST'>
+      <form id='newRegisterForm' action="/users/register" method='POST'>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" name='name' id='name' placeholder='Enter Name' onChange={handleName} required/>
+          <input type="text" name='name' id='name' placeholder='Enter Name' onChange={handleName} value={name} required/>
         </div>
         <div>
           <label htmlFor="pin">Pin</label>
-          <input type="password" name='pin' id='pin' placeholder='Enter Pin' required onChange={handlePin}/>      
+          <input type="password" name='pin' id='pin' placeholder='Enter Pin' required onChange={handlePin} value={pin}/>      
         </div>
-        <button type='submit' onClick={handleFormSubmit}>Submit</button>
+        <button form='newRegisterForm' type='submit' onClick={handleFormSubmit} >Submit</button>
       </form>
     </div>
   )

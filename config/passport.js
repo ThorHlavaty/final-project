@@ -7,10 +7,10 @@ const db = require('../models');
 
 module.exports = function(passport) {
   passport.use(
-    new LocalStrategy({ usernameField: 'pin' }, ( pin, done) => {
-      // Match user
+    new LocalStrategy({ usernameField: 'id', passwordField: 'pin' }, (id, pin, done) => {
+      // Match pin
       db.User.findOne({
-        where: {pin: pin}
+        where: {id: id}
       }).then(user => {
         console.log(user)
         if (!user) {
