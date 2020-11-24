@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.1",
+    "bootstrap": "^4.5.3",
     "cookie-parser": "^1.4.5",
-    "express": "^4.17.1",
     "debug": "~2.6.9",
+    "express": "^4.17.1",
     "heroku-cli": "^7.0.9",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6",
     "pg": "^8.5.1",
+    "react-bootstrap": "^1.4.0",
+    "react-router-dom": "^5.2.0",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0"
   },
