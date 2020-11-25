@@ -7,13 +7,14 @@ import { Grid } from 'semantic-ui-react'
 import { useDispatch } from 'react-redux'
 import { setAccordionIndex } from '../../redux/actions'
 import 'semantic-ui-css/semantic.min.css';
-
+import './Order.css'
 
 const content = {
     backgroundColor: '#C0E9ED',
-    height: '600px',
+    height: '650px',
     border: '1px solid #ccc',
-    overflow: 'auto'
+    overflow: 'auto',
+    marginLeft: '0px', 
   }
 
 
@@ -28,14 +29,14 @@ useEffect(()=>{
   
   return (
     
-    <Grid columns={2}>
-      <Grid.Column >
+    <Grid stretched columns={2}>
+      <Grid.Column style={{paddingLeft:'1rem', paddingRight:'1rem', paddingBottom:'1rem'}}>
         <Guests />
         <OrderCommands />
       </Grid.Column>
       <Grid.Column style={content} >
         {Object.keys(menuData).map((title, index) =>{
-        return <Menu key={index} index={index} title={title}/>
+          return <Menu key={index} index={index} title={title}/>
         })}
       </Grid.Column>
     </Grid>
