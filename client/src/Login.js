@@ -1,5 +1,8 @@
 import React, { useState , useEffect} from 'react';
+import { useDispatch } from 'react-redux'
 import axios from 'axios';
+import { signin } from './redux/actions';
+import { useHistory } from 'react-router-dom';
 
 export default function Login() {
 
@@ -9,25 +12,55 @@ export default function Login() {
 
   const [id, setid] = useState('')
 
+  const dispatch = useDispatch()
+
+  const history = useHistory()
 
   // Get All users and their id
-  useEffect(()=>{
+  // useEffect(()=>{
+  //   axios.get('/users')
+  //   .then(res => {
+  //     setUsers(res.data)
+  //   })
+  // },[])
+
+
+  // Cleanup function
+  useEffect(() => {
     axios.get('/users')
     .then(res => {
       setUsers(res.data)
     })
-  },[])
+
+    const source = axios.CancelToken.source()
+
+    const fetchUsers = async () => {
+        try {
+            await axios.get('/users', {
+                cancelToken: source.token,
+            })
+            // ...
+        } catch (error) {
+            if (axios.isCancel(error)) {
+            } else {
+                throw error
+            }
+        }
+    }
+
+    fetchUsers()
+
+    return () => {
+        source.cancel()
+    }
+}, [])
 
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    axios.post('/users/login',{
-      pin,
-      id,
-    })
+    dispatch(signin(id, pin))
     .then(res => {
-      setPin('')
-      setid('')
+      history.push('/users/dashboard')
     })
     .catch(err =>  console.log(err))
   }
@@ -48,7 +81,7 @@ export default function Login() {
         <div>
           <label htmlFor="id">Select Employee</label>
           <select id='id' name='id' onChange={handleID} value={id} required>
-            <option value="" disabled selected >Select Employee</option>
+            <option value="" disabled  >Select Employee</option>
             {users.map(user =>{
               return <option key ={user.id} value={user.id}>{user.id} - {user.name}</option>
             })}
