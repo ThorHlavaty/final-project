@@ -18,6 +18,13 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      TableId:{
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Tables',
+          key: 'id'
+        }
       }
     });
   },

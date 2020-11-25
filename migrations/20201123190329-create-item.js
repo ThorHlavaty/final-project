@@ -24,6 +24,13 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      GuestId:{
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Guests',
+          key: 'id'
+        }
       }
     });
   },
