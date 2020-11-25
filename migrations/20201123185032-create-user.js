@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       pin: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         unique:true
       },
       manager: {

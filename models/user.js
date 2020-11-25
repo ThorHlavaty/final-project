@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.init({
     name: DataTypes.STRING,
-    pin: DataTypes.INTEGER,
+    pin: {type:DataTypes.TEXT,
+    unique:true},
     manager: DataTypes.BOOLEAN
   }, {
     sequelize,
