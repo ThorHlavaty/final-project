@@ -9,7 +9,6 @@ import {
   FaTwitter,
   FaLinkedin
 } from 'react-icons/fa';
-import { MdFingerprint } from 'react-icons/md';
 
 export default function Footer() {
   return (
@@ -63,7 +62,6 @@ export default function Footer() {
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              
               NADA
             </Link>
           </div>

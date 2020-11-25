@@ -1,8 +1,8 @@
 import React from 'react'
 import './Home.css'
-import Navbar from '../../components/Navbar/Navbar'
-import Section1 from '../../components/Section1/Section1'
-import Footer from '../../components/Footer/Footer'
+import Navbar from '../../Components/Navbar/Navbar'
+import Section1 from '../../Components/Section1/Section1'
+import Footer from '../../Components/Footer/Footer'
 
 export default function Home() {
 
