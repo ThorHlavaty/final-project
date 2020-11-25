@@ -1,0 +1,18 @@
+/* .ui.compact.grid .row:not(:first-child),
+.ui.grid .compact.row {
+  padding-top: 0;
+}
+.ui.compact.grid .row:not(:last-child),
+.ui.grid .compact.row {
+  padding-bottom: 0;
+}
+.ui.compact.grid .column:not(:first-child),
+.ui.grid .compact.row .column:not(:first-child),
+.ui.grid .compact.column {
+  padding-left: 0;
+}
+.ui.compact.grid .column:not(:last-child),
+.ui.grid .compact.row .column:not(:last-child),
+.ui.grid .compact.column {
+  padding-right: 0;
+} */
