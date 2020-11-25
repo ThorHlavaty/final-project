@@ -1,3 +1,7 @@
+
+import './App.css';
+import TableLayout from './Components/TableLayout';
+
 import Registration from './Registration'
 import React, { useEffect} from 'react';
 import './App.css';
@@ -11,6 +15,7 @@ import PrivateRoute from './Components/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux'
 import { checkAuth } from './redux/actions';
 import {signout} from '../src/redux/actions'
+
 
 function App() {
 
@@ -30,6 +35,11 @@ function App() {
   }
 
   return (
+
+    <div className="App">
+      <TableLayout />
+    </div>
+
     <>
 
       {/* <Link to='/users/register'>Register</Link>
@@ -59,6 +69,7 @@ function App() {
 
       </Switch>
     </>
+
 
   );
 }
