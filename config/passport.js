@@ -7,10 +7,10 @@ const db = require('../models');
 
 module.exports = function(passport) {
   passport.use(
-    new LocalStrategy({ usernameField: 'pin' }, ( pin, done) => {
-      // Match user
+    new LocalStrategy({ usernameField: 'id', passwordField: 'pin' }, (id, pin, done) => {
+      // Match pin
       db.User.findOne({
-        where: {pin: pin}
+        where: {id: id}
       }).then(user => {
         console.log(user)
         if (!user) {
@@ -21,6 +21,7 @@ module.exports = function(passport) {
         bcrypt.compare(pin, user.pin, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
+            
             return done(null, user);
           } else {
             return done(null, false, { message: 'Pin incorrect' });
@@ -31,11 +32,13 @@ module.exports = function(passport) {
   );
 
   passport.serializeUser(function(user, done) {
+    console.log('Serialize', user)
     done(null, user.id);
   });
 
   passport.deserializeUser(function(id, done) {
     db.User.findByPk(id).then((user) => {
+      console.log('Deserialize', user)
       done(null, user)
     })
     .catch((err) => {

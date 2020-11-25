@@ -1,5 +1,5 @@
 const express = require('express');
-const { forwardAuthenticated } = require('../config/auth');
+const { ensureAuthenticated } = require('../config/auth');
 const router = express.Router();
 const db = require('../models')
 const passport = require('passport');
@@ -26,27 +26,57 @@ router.post('/register', (req, res) => {
         pin: hash
       })
       .then((result) => {
-        req.json({success: 'You can now log in'});
+        res.json({success: 'You can now log in', user:result});
       })
       .catch(err => console.log(err));
   });
 });
 
 
+// Get all User id and name for the Selector button
+router.get('/', (req, res)=>{
+  db.User.findAll().then(users => {
+    return users.map(user => {
+      return {
+      id: user.id,
+      name: user.name
+    }})
+  })
+  .then(users => res.json(users))
+})
 
 // Login
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err); }
-    if (!user) { return res.json({error: 'Could not log in', info}); }
+    if (!user) { return res.status(401).json({error: 'Could not log in', info}); }
+    req.login(user, () => {})
     res.json({user})
   })(req, res, next);
 });
+
+
 
 // Logout
 router.get('/logout', (req, res) => {
   req.logout();
   res.json({success: 'You are logged out.'});
+})
+
+
+// Dashboard
+router.get('/dashboard', ensureAuthenticated, (req, res) => {
+  res.status(200)
+})
+
+
+// 
+router.get('/current', (req,res)=>{
+  console.log(req.isAuthenticated())
+  if (!req.isAuthenticated()) {
+    return res.json({});
+  }
+  return res.json({user: req.user})
 })
 
 module.exports = router;

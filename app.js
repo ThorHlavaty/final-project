@@ -11,13 +11,24 @@ const store = new SequelizeStore({
   db: db.sequelize
 })
 const passport = require('passport')
+require('./config/passport')(passport)
+const cors = require('cors')
 
 const app = express();
+
+// app.use(cors())
+
+app.use(cookieParser());
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(
   session({
     secret: 'secret', // used to sign the cookie
-    resave: false, // update session even w/ no changes
+    resave: true, // update session even w/ no changes
     saveUninitialized: true, // always create a session
     store: store,
   })
@@ -25,15 +36,9 @@ app.use(
 store.sync()
 
 // Passport middleware
-require('./config/passport')(passport)
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

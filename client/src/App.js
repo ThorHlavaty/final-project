@@ -1,22 +1,49 @@
-import Login from './pages/Login/Login';
-import React from 'react'
-import { Route, Switch } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import { Container } from '@material-ui/core'
-import Register from './pages/Register/Register';
-import 'semantic-ui-css/semantic.min.css'
+import Registration from './Registration'
+import React, { useEffect} from 'react';
+import './App.css';
+import Login from './Login';
+import {Link, Route, Switch} from 'react-router-dom'
+import Dashboard from './Dashboard';
+import PrivateRoute from './Components/PrivateRoute';
+import { useDispatch, useSelector } from 'react-redux'
+import { checkAuth } from './redux/actions';
+import {signout} from '../src/redux/actions'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  const {userInfo, check} = useSelector((state) => state.userSignin)
+
+  const signoutHandler =() => {
+    dispatch(signout())}
+
+  useEffect(()=>{
+    dispatch(checkAuth())
+  },[dispatch])
+
+  if(!check && !userInfo){
+    return 'Loading'
+  }
+
   return (
     <>
-    <Container>
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/login" exact component={Login} /> 
-      <Route path="/register" exact component={Register} /> 
-    </Switch>
-    </Container>
+      <Link to='/users/register'>Register</Link>
+      <Link to='/users/dashboard'>Dashboard</Link>
+
+      {userInfo ? (
+      <Link to='/' onClick={signoutHandler}>Sign Out</Link>) : (<Link to='/users/login'>Login</Link>)}
+
+
+
+      <Switch>
+        <Route exact path='/'/>
+        <Route exact path='/users/register' component={Registration}/>
+        <Route exact path='/users/login' component={Login}/>
+        <PrivateRoute exact path='/users/dashboard' component={Dashboard}/>
+      </Switch>
     </>
+
   );
 }
 
