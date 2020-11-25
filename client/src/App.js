@@ -35,12 +35,8 @@ function App() {
   }
 
   return (
-
-    <div className="App">
-      <TableLayout />
-    </div>
-
     <>
+      <TableLayout />
 
       {/* <Link to='/users/register'>Register</Link>
       <Link to='/users/login'>Login</Link>
