@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import { Container } from '@material-ui/core'
 import Register from './pages/Register/Register';
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   return (

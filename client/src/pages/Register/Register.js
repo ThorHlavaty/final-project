@@ -1,19 +1,44 @@
 import React from 'react'
-import { Container, Grid, TextField, makeStyles, Button } from '@material-ui/core'
+import { makeStyles} from '@material-ui/core'
 import './Register.css'
+import { Button, Form } from 'semantic-ui-react'
+
+
 
 const useStyles = makeStyles(() => ({
-    container: {
-      background: 'white',
-      borderRadius: '15px',
-      maxWidth: '65%',
-      marginTop: '30%'
+    root: {
+      background: '#c0e9ed',
+      padding: 0,
+      margin:0,
+      width: '100%',
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center !important',
       
     },
     button: {
-      background: '#2babec',
-      color:'white'
+      background: '#2babec !important',
+      color:'white !important'
       
+    },
+    form: { 
+        marginTop: '50px',
+      display:'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      background: '#fff',
+      padding:'20px',
+      maxHeight: '500px !important',
+      borderRadius: '15px',
+      boxShadow: '0 4px 6px -6px black'
+      
+    },
+    formLabel: { 
+      color:'#1F526B !important'
+      
+    },
+    logo: { 
+      marginBottom:'20px'
       
     },
   }));
@@ -38,41 +63,27 @@ export default function Register() {
     const classes = useStyles();
 
     return (
-        <div>
-            <Container className={classes.container}>
-                <form>
-                    <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <Grid container spacing={1}>
-                        <Grid item xs={12}>
-                            <TextField fullWidth label="Manager" name="manager" size="small" variant="outlined" />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField fullWidth label="Manager Password" name="managerPassword" size="small" variant="outlined" />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField fullWidth label="Username" name="username" size="small" variant="outlined" />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                            fullWidth
-                            label="Pin"
-                            name="pin"
-                            size="small"
-                            type="pin"
-                            variant="outlined"
-                            />
-                        </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Button className={classes.button} fullWidth type="submit" variant="contained">
-                        Log in
-                        </Button>
-                    </Grid>
-                    </Grid>
-                    </form>
-            </Container>
+        <div className={classes.root}>
+            <Form className={classes.form} >
+                <img className={classes.logo} src='/public/logo.png' alt='logo' />
+                <Form.Field>
+                    <label className={classes.formLabel} >New Member</label>
+                    <input placeholder='Member Name' />
+                </Form.Field>
+                <Form.Field>
+                    <label className={classes.formLabel} >New Pin</label>
+                    <input placeholder='Pin' />
+                </Form.Field>
+                <Form.Field>
+                    <label className={classes.formLabel} >Manager</label>
+                    <input placeholder='Name' />
+                </Form.Field>
+                <Form.Field>
+                    <label className={classes.formLabel} >Manager Pin</label>
+                    <input placeholder='Pin' />
+                </Form.Field>
+                <Button id='svg' className={classes.button} type='submit'>Sign Up</Button>
+            </Form>
         </div>
     )
 }
