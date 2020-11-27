@@ -9,7 +9,8 @@ const useStyles = makeStyles(() => ({
         display: 'grid',
         placeItems: 'center',
         top:'0',
-        textAlign: 'center'
+        textAlign: 'center',
+        width: '100vw'
     },
     title: {
         paddingTop: '10%',

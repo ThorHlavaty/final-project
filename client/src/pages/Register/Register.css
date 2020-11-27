@@ -4,11 +4,11 @@
     box-sizing: border-box;
 }
 
-/* body{
+body{
     background: #c0e9ed;
     display: flex;
     justify-content: center !important;
-} */
+}
 
 button {
     position: relative;

@@ -4,7 +4,7 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 import { Button } from '../Button/Button';
 import './Navbar.css';
 import { IconContext } from 'react-icons/lib'
-
+import { MdTrackChanges } from "react-icons/md";
 
 
 
@@ -35,7 +35,7 @@ export default function Navbar() {
           <nav className='navbar'>
             <div className='navbar-container container'>
               <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                NADA
+              {<MdTrackChanges/>} NADA
               </Link>
               <div className='menu-icon' onClick={handleClick}>
                 {click ? <FaTimes /> : <FaBars />}
@@ -66,17 +66,39 @@ export default function Navbar() {
                 </li>
                 <li className='nav-btn'>
                   {button ? (
-                    <Link to='/sign-up' className='btn-link'>
+                    <Link to='/users/register' className='btn-link'>
                       <Button buttonStyle='btn--primary'>SIGN UP</Button>
                     </Link>
                   ) : (
-                    <Link to='/sign-up' className='btn-link'>
+                    <Link to='/users/register' className='btn-link'>
                       <Button
                         buttonStyle='btn--outline'
                         buttonSize='btn--mobile'
                         onClick={closeMobileMenu}
                       >
-                        SIGN UP
+                        Sign Up
+                      </Button>
+                    </Link>
+                  )}
+                </li>
+                <li className='nav-btn'>
+                  {button ? (
+                    <Link to='/users/login' className='btn-link'>
+                      <Button 
+                      buttonStyle='btn--outline'
+                      
+                      >
+                        Sign In
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Link to='/users/login' className='btn-link'>
+                      <Button
+                        buttonStyle='btn--primary'
+                        buttonSize='btn--mobile'
+                        onClick={closeMobileMenu}
+                      >
+                        SIGN IN
                       </Button>
                     </Link>
                   )}

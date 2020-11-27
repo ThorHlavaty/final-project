@@ -1,13 +1,16 @@
-import Registration from './Registration'
+// import Registration from './Registration'
 import React, { useEffect} from 'react';
 import './App.css';
-import Login from './Login';
+import Login from './pages/Login/Login';
 import {Link, Route, Switch} from 'react-router-dom'
 import Dashboard from './Dashboard';
 import PrivateRoute from './Components/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux'
 import { checkAuth } from './redux/actions';
 import {signout} from '../src/redux/actions'
+import Register from './pages/Register/Register';
+import Loading from './pages/Loading/Loading';
+import Home from './pages/Home/Home';
 
 function App() {
 
@@ -23,12 +26,12 @@ function App() {
   },[dispatch])
 
   if(!check && !userInfo){
-    return 'Loading'
+    return <Loading/>
   }
-
+else{
   return (
     <>
-      <Link to='/users/register'>Register</Link>
+      {/* <Link to='/users/register'>Register</Link> */}
       <Link to='/users/dashboard'>Dashboard</Link>
 
       {userInfo ? (
@@ -37,14 +40,15 @@ function App() {
 
 
       <Switch>
-        <Route exact path='/'/>
-        <Route exact path='/users/register' component={Registration}/>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/users/register' component={Register}/>
+        {/* <Route exact path='/users/register' component={Registration}/> */}
         <Route exact path='/users/login' component={Login}/>
         <PrivateRoute exact path='/users/dashboard' component={Dashboard}/>
       </Switch>
     </>
 
   );
-}
+}}
 
 export default App;
