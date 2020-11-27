@@ -7,11 +7,11 @@ export default function Guest(props) {
     <h3>
       Guest {props.id}:
     </h3>
-    <Grid celled style={{fontSize:'12px'}}>
-    <Grid.Column style={{fontSize:'12px'}}  width={2}>
+    <Grid divided style={{fontSize:'12px'}}>
+    <Grid.Column style={{fontSize:'12px', width:'14vw'}}>
       CHIX TACO
     </Grid.Column>
-    <Grid.Column floated='right' style={{fontSize:'12px', textAlign:'right'}} width={10}>
+    <Grid.Column  style={{fontSize:'12px', width:'31vw', textAlign:'right'}}>
       $8.95
     </Grid.Column>
   </Grid>

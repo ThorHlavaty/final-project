@@ -36,7 +36,6 @@ function App() {
 
   return (
     <>
-      <TableLayout />
 
       {/* <Link to='/users/register'>Register</Link>
       <Link to='/users/login'>Login</Link>
@@ -56,7 +55,7 @@ function App() {
         <Route exact path='/'/>
         <Route exact path='/users/register' component={Registration}/>
         <Route exact path='/users/login' component={Login}/>
-
+        <Route exact path='/table'  component={TableLayout}/>
         <Route exact path='/users/dashboard' component={Dashboard}/>
         <Route exact path='/table/id' component={Order}/>
 
