@@ -30,7 +30,7 @@ export default function Menu(props) {
       </Accordion.Title>
       <Accordion.Content active={accordionIndex === props.index}>
             {menuData[props.title].map((item, index) => {
-            return <MenuItem key={index} price={item.price} name={item.name}/>
+            return <MenuItem key={index} price={item.price} shorthand={item.shorthand} name={item.name}/>
             })}
       </Accordion.Content>
     </Accordion>
