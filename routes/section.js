@@ -5,33 +5,39 @@ const db = require('../models')
 
 
 // Create Section
-// URL: /api/v1/section
-router.post('/', (req,res) => {
-  const {number} = req.body
+// URL: /api/v1/section/:section_id
+router.put('/:section_id', (req,res) => {
+  const {user_id} = req.body
+  const {section_id} = req.params
 
 
-  if (!number) {
+  if (!section_id) {
     res.status(404).json({error: 'Enter section number'})
   }
 
-  db.Section.create({
-    number,
-    UserId: req.user.id
+  db.Section.update({
+    where:{
+      id: section_id
+    }
+  },{
+    UserId: user_id
   })
   .then((result) => {
-    res.json({success: 'Section number entered'})
+    res.json({success: 'Section number updated'})
   })
   .catch(err => console.log(err))
 
 })
 
+
 // Delete Section based on ID
-// URL: /api/v1/guest/:sectionId
-router.delete('/:sectionId', (req,res)=>{
+// URL: /api/v1/section/:section_id
+router.delete('/:section_id', (req,res)=>{
+  const {section_id} = req.params
+
   db.Guest.destroy({
     where: {
-      id: req.params.sectionId,
-      UserId: req.user.id
+      id: section_id,
     }
   })
   .then(deleted => {
