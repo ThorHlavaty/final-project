@@ -3,7 +3,6 @@
 
 
 import './App.css';
-import TableLayout from './Components/TableLayout';
 
 import Registration from './Registration'
 
@@ -19,6 +18,7 @@ import PrivateRoute from './Components/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux'
 import { checkAuth } from './redux/actions';
 import {signout} from '../src/redux/actions'
+
 import Register from './pages/Register/Register';
 import Loading from './pages/Loading/Loading';
 import Home from './pages/Home/Home';
@@ -38,7 +38,9 @@ function App() {
   },[dispatch])
 
   if(!check && !userInfo){
+
     return <Loading/>
+
   }
 else{
   return (
@@ -60,13 +62,14 @@ else{
       <Link to='/' onClick={signoutHandler}>Sign Out</Link>) : (<Link to='/users/login'>Login</Link>)}
 
 
-
-
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/users/register' component={Register}/>
         {/* <Route exact path='/users/register' component={Registration}/> */}
         <Route exact path='/users/login' component={Login}/>
+
+        {/* <Route exact path='/users/dashboard' component={Dashboard}/> */}
+
         <Route exact path='/table'  component={TableLayout}/>
         <Route exact path='/users/dashboard' component={Dashboard}/>
         <Route exact path='/table/id' component={Order}/>

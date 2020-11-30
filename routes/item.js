@@ -5,7 +5,7 @@ const db = require('../models')
 // Create Item
 // URL: /api/v1/item
 router.post('/', (req,res) => {
-  const {name, cost, type} = req.body
+  const {name, cost, type, guest_id} = req.body
 
 
   if (!name || !cost || !type) {
@@ -16,7 +16,7 @@ router.post('/', (req,res) => {
     name,
     cost,
     type,
-    GuestId: req.user.id
+    GuestId: guest_id
   })
   .then((result) => {
     res.json({success: 'All items entered'})
@@ -27,8 +27,9 @@ router.post('/', (req,res) => {
 
 // Update Item per Guest
 // URL: /api/v1/item/:guestId
-router.put('/:guestId', (req,res)=>{
-  const {name, cost, type} = req.body
+router.put('/:guest_id', (req,res)=>{
+  const {name, cost, type, guest_id} = req.body
+
   if (!req.body || !req.body.name || req.body.cost || req.body.type) {
     res.status(400).json({
       error: 'Enter all fields'
@@ -36,14 +37,16 @@ router.put('/:guestId', (req,res)=>{
     return;
   }
   db.Item.update({
-    name,
-    cost,
-    type
-  }, {
     where:{
-      id: req.params.guestId
+      name,
+      cost,
+      type,
+      GuestId: guest_id
     }
-  })
+  }, {
+      GuestId: req.params.guest_id
+    }
+  )
   .then(updated => {
     if(updated && updated[0] === 1){
       res.status(202).json({
@@ -62,10 +65,10 @@ router.put('/:guestId', (req,res)=>{
 
 // Delete an Item
 // URL: /api/v1/item/:itemId
-router.delete('/:itemId', (req,res)=>{
+router.delete('/:item_id', (req,res)=>{
   db.Item.destroy({
     where: {
-      id: req.params.itemId
+      id: req.params.item_id
     }
   })
   .then(deleted => {

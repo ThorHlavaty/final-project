@@ -27,22 +27,22 @@ router.post('/', (req,res) => {
 
 // Delete Table based on ID
 // URL: /api/v1/guest/:tableId
-router.delete('/:tableId', (req,res)=>{
+router.delete('/:table_id', (req,res)=>{
   db.Guest.destroy({
     where: {
-      id: req.params.tableId,
+      id: req.params.table_id,
       SectionId: req.user.id
     }
   })
   .then(deleted => {
     if(deleted === 1) {
       res.status(202).json({
-        success: 'Comment deleted'
+        success: 'Table deleted'
       })
     }
     else {
       res.status(404).json({
-        error: 'Comment not found'
+        error: 'Table not found'
       })
     }
   })
