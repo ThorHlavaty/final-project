@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 export const SET_ACCORDIONINDEX = 'SET_ACCORDIONINDEX'
+export const SET_CURRENTGUEST = 'SET_CURRENTGUEST'
+export const SET_GUESTCOUNT = 'SET_GUESTCOUNT'
+export const SET_GUESTITEMSOBJECT = 'SET_GUESTITEMSOBJECT'
 
 
 
@@ -14,7 +17,32 @@ export function setAccordionIndex(accordionIndex) {
     }
 }
 
+export function setCurrentGuest(currentGuest) {
+    return {
+        type: SET_CURRENTGUEST,
+        payload: {
+            currentGuest
+        }
+    }
+}
 
+export function setGuestCount(guestCount) {
+    return {
+        type: SET_GUESTCOUNT,
+        payload: {
+            guestCount
+        }
+    }
+}
+
+export function setGuestItemsObject(guestItemsObject) {
+    return {
+        type: SET_GUESTITEMSOBJECT,
+        payload: {
+            guestItemsObject
+        }
+    }
+}
 
 export const register = (name, pin) => async(dispatch) => {
     dispatch({ 
