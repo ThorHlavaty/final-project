@@ -13,6 +13,7 @@ import {Link, Route, Switch} from 'react-router-dom'
 import Dashboard from './Dashboard';
 
 import Order from './Components/Order/Order';
+import TableLayout from './Components/TableLayout';
 
 import PrivateRoute from './Components/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux'
