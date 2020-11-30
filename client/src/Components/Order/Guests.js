@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
 import { Container } from 'semantic-ui-react';
 import Guest from './Guest';
@@ -17,11 +18,11 @@ const content = {
 
 
 export default function Guests() {
-const [numberOfGuests] = useState(4)
+const guestCount = useSelector(state => state.guestCount)
 
   return (
     <Container style={content}>
-      {[...Array(numberOfGuests)].map((value, index) => (
+      {[...Array(guestCount)].map((value, index) => (
   <Guest id={index + 1} key={index} />
 ))}
     </Container>
