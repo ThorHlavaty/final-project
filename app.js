@@ -3,8 +3,18 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db = require('./models')
+
+// Routes
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const guestRouter = require('./routes/guest');
+const sectionRouter = require('./routes/section');
+const tableRouter = require('./routes/table');
+const itemRouter = require('./routes/item');
+
+
+
+
 const session = require('express-session')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const store = new SequelizeStore({
@@ -40,8 +50,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/v1/guest', guestRouter);
+app.use('/api/v1/section', sectionRouter);
+app.use('/api/v1/table', tableRouter);
+app.use('/api/v1/item', itemRouter);
+
+
 
 
 const port = process.env.PORT || 4000;
