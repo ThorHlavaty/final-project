@@ -32,10 +32,10 @@ else{
   return (
     <>
       {/* <Link to='/users/register'>Register</Link> */}
-      <Link to='/users/dashboard'>Dashboard</Link>
+      {/* <Link to='/users/dashboard'>Dashboard</Link>
 
       {userInfo ? (
-      <Link to='/' onClick={signoutHandler}>Sign Out</Link>) : (<Link to='/users/login'>Login</Link>)}
+      <Link to='/' onClick={signoutHandler}>Sign Out</Link>) : (<Link to='/users/login'>Login</Link>)} */}
 
 
 

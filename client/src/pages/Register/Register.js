@@ -9,7 +9,7 @@ import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 
 const useStyles = makeStyles(() => ({
     root: {
-      background: '#1F526B',
+      background: '#000',
       padding: 0,
       margin:0,
       width: '100%',
@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
       
     },
     button: {
-      background: '#2babec !important',
+      background: '#74bff8 !important',
       color:'white !important'
       
     },
@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
       
     },
     formLabel: { 
-      color:'#1F526B !important'
+      color:'#000 !important'
       
     },
     logo: { 
@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
       
     },
     h1:{
-      color:'#1F526B !important',
+      color:'#000 !important',
       alignSelf: 'center',
       marginBottom: '30px !important'
     },
