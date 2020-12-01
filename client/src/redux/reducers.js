@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SET_ACCORDIONINDEX, SET_CURRENTGUEST, SET_GUESTCOUNT, SET_GUESTITEMSOBJECT } from "./actions";
+import { SET_ACCORDIONINDEX, SET_CURRENTGUEST, SET_GUESTCOUNT, SET_GUESTITEMSOBJECT, SET_TABLEID, SET_TABLENUM } from "./actions";
 
 
 
@@ -8,6 +8,30 @@ function accordionIndexReducer(state=(-1), action) {
     switch (action.type) {
         case SET_ACCORDIONINDEX:
             return action.payload.accordionIndex
+        
+        
+            
+            default:
+            return state;
+    }
+}
+
+function tableIdReducer(state=(1), action) {
+    switch (action.type) {
+        case SET_TABLEID:
+            return action.payload.tableId
+        
+        
+            
+            default:
+            return state;
+    }
+}
+
+function tableNumReducer(state=(11), action) {
+    switch (action.type) {
+        case SET_TABLENUM:
+            return action.payload.tableNum
         
         
             
@@ -88,5 +112,7 @@ export const rootReducer = combineReducers({
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
     guestCount: guestCountReducer,
-    guestItemsObject: guestItemsObjectReducer
+    guestItemsObject: guestItemsObjectReducer,
+    tableId: tableIdReducer,
+    tableNum: tableNumReducer
 })

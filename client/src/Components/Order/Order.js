@@ -4,12 +4,14 @@ import Menu from './Menu'
 import OrderCommands from './OrderCommands'
 import Guests from './Guests'
 import { Grid } from 'semantic-ui-react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setAccordionIndex } from '../../redux/actions'
 import 'semantic-ui-css/semantic.min.css';
 import './Order.css'
 import OrderHeader from './OrderHeader'
 import OrderHeaderMobile from './OrderHeaderMobile'
+import Axios from 'axios'
+import { compareSync } from 'bcrypt'
 
 const content = {
     backgroundColor: '#C0E9ED',
@@ -19,14 +21,22 @@ const content = {
     marginLeft: '0px', 
   }
 
+  //Keys seat# of each guestId at this table.
+  //Values an array that has each item that matches the guest id's price and name as an array
 
 
 
 export default function Order() {
 const dispatch = useDispatch()
+const tableId = useSelector(state => state.tableId)
 
 useEffect(()=>{
   dispatch(setAccordionIndex(-1))
+  // Axios.get(`/api/v1/guest/${tableId}`)
+  // .then(res => {res.data.map(guest => {
+  //   Axios.get(`/api/v1/item/${guest.id}`)
+  //   .then(res => {console.log(res)})
+  // })})
 },[dispatch])
   
   return (

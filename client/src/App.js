@@ -3,9 +3,6 @@
 
 
 import './App.css';
-
-import Registration from './Registration'
-
 import React, { useEffect} from 'react';
 import './App.css';
 import Login from './pages/Login/Login';
@@ -73,7 +70,7 @@ else{
 
         <Route exact path='/table'  component={TableLayout}/>
         <Route exact path='/users/dashboard' component={Dashboard}/>
-        <Route exact path='/table/id' component={Order}/>
+        <Route exact path='/table/:id' component={Order}/>
 
 
         <PrivateRoute exact path='/users/dashboard' component={Dashboard}/>

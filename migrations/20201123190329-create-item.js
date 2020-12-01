@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       cost: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
-      type: {
-        type: Sequelize.STRING
+      onSeat: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
