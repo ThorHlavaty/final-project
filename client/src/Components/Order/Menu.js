@@ -19,11 +19,12 @@ export default function Menu(props) {
   
 
   return (
-    <Accordion>
+    <Accordion style={{borderBottom:'2px solid #fff'}}> 
     <Accordion.Title
           active={accordionIndex === props.index}
           index={props.index}
           onClick={() => handleClick(props.index)}
+          
         >
       <h1>{props.title}<Icon name='dropdown' /></h1>
       </Accordion.Title>

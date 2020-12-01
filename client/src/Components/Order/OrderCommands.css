@@ -1,0 +1,28 @@
+.ui.grid > .blue.column,
+.ui.grid > .blue.row,
+.ui.grid > .row > .blue.column {
+  background-color: #2babec !important;
+  color: #fff;
+}
+
+.ui.grid > .green.column,
+.ui.grid > .green.row,
+.ui.grid > .row > .green.column {
+  background-color: #35d094 !important;
+  color: #fff;
+}
+
+.ui.grid > .grey.column,
+.ui.grid > .grey.row,
+.ui.grid > .row > .grey.column {
+  background-color: #abb9bd !important;
+  color: #fff;
+}
+
+.ui.grid > .red.column,
+.ui.grid > .red.row,
+.ui.grid > .row > .red.column {
+  background-color: #ff9b9b !important;
+  color: #fff;
+}
+

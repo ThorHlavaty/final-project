@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SET_ACCORDIONINDEX } from "./actions";
+import { SET_ACCORDIONINDEX, SET_CURRENTGUEST } from "./actions";
 
 
 
@@ -8,6 +8,18 @@ function accordionIndexReducer(state=(-1), action) {
     switch (action.type) {
         case SET_ACCORDIONINDEX:
             return action.payload.accordionIndex
+        
+        
+            
+            default:
+            return state;
+    }
+}
+
+function currentGuestReducer(state=(0), action) {
+    switch (action.type) {
+        case SET_CURRENTGUEST:
+            return action.payload.currentGuest
         
         
             
@@ -48,6 +60,7 @@ export const userSigninReducer = (state = {loading: false, check:false}, action)
 
 export const rootReducer = combineReducers({
     accordionIndex: accordionIndexReducer,
+    currentGuest: currentGuestReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
 })

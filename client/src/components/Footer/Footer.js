@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css';
 import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
+import { MdTrackChanges } from "react-icons/md";
 import {
   FaFacebook,
   FaInstagram,
@@ -62,7 +63,7 @@ export default function Footer() {
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              NADA
+              {<MdTrackChanges/>}NADA
             </Link>
           </div>
           <small className='website-rights'>NADA © 2020</small>
