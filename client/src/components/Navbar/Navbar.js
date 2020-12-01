@@ -33,7 +33,7 @@ export default function Navbar() {
       <>
         <IconContext.Provider value={{ color: '#000' }}>
           <nav className='navbar'>
-            <div className='navbar-container container'>
+            <div className='navbar-container container2'>
               <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
               {<MdTrackChanges/>} NADA
               </Link>

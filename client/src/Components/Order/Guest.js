@@ -1,20 +1,24 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
+import './Guest.css'
 
 export default function Guest(props) {
   return (
     <>
-    <h3>
-      Guest {props.id}:
-    </h3>
-    <Grid divided style={{fontSize:'12px'}}>
-    <Grid.Column style={{fontSize:'12px', width:'14vw'}}>
-      CHIX TACO
-    </Grid.Column>
-    <Grid.Column  style={{fontSize:'12px', width:'31vw', textAlign:'right'}}>
-      $8.95
-    </Grid.Column>
-  </Grid>
+    <div className="guest">
+      <h3>
+        Guest {props.id}:
+      </h3>
+      <Grid divided style={{fontSize:'1rem'}}>
+      <Grid.Column></Grid.Column> 
+      <Grid.Column style={{fontSize:'1rem', width:'14vw'}}>
+        CHIX TACO
+      </Grid.Column>
+      <Grid.Column  className="price" style={{fontSize:'1rem', width:'31vw', textAlign:'right'}}>
+        Total: $8.95
+      </Grid.Column>
+    </Grid>
+  </div>
     </>
   )
 }

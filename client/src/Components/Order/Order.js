@@ -12,9 +12,9 @@ import OrderHeader from './OrderHeader'
 import OrderHeaderMobile from './OrderHeaderMobile'
 
 const content = {
-    backgroundColor: '#C0E9ED',
-    height: '95vh',
-    border: '1px solid #ccc',
+    backgroundColor: '#74bff8',
+    height: '100vh',
+    border: '1px solid #000 !important',
     overflow: 'auto',
     marginLeft: '0px', 
   }
@@ -31,7 +31,8 @@ useEffect(()=>{
   
   return (
     <>
-    <Grid style={{paddingBottom:'0rem'}}>
+    <div className="OrderRoot">
+    <Grid style={{paddingBottom:'0rem', }}>
     <Grid.Row only='computer tablet' style={{paddingBottom:'0px', paddingTop:'0px'}}>
     <OrderHeader />
     </Grid.Row>
@@ -40,7 +41,7 @@ useEffect(()=>{
     </Grid.Row>
     </Grid>
     <Grid stretched columns={2}>
-      <Grid.Column color='purple' style={{paddingLeft:'1rem', paddingRight:'1rem', paddingBottom:'1rem'}}>
+      <Grid.Column color='white' style={{paddingLeft:'1rem', paddingRight:'1rem', paddingBottom:'1rem'}}>
         <Guests />
         <OrderCommands />
       </Grid.Column>
@@ -50,6 +51,7 @@ useEffect(()=>{
         })}
       </Grid.Column>
     </Grid>
+    </div>
     </>
   ) 
 }

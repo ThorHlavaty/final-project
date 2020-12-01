@@ -19,7 +19,7 @@ export default function Menu(props) {
   
 
   return (
-    <Accordion style={{borderBottom:'2px solid #ccc'}}> 
+    <Accordion style={{borderBottom:'2px solid #fff'}}> 
     <Accordion.Title
           active={accordionIndex === props.index}
           index={props.index}

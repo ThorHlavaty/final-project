@@ -66,7 +66,7 @@ else{
         <Route exact path='/' component={Home}/>
         <Route exact path='/users/register' component={Register}/>
         {/* <Route exact path='/users/register' component={Registration}/> */}
-        <Route exact path='/users/login' component={Login}/>
+        <Route exact path='/users/login' component={Login}/>      
         <Route exact path='/table'  component={TableLayout}/>
         <Route exact path='/users/dashboard' component={Dashboard}/>
         <Route exact path='/table/id' component={Order}/>

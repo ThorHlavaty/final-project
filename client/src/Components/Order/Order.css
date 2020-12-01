@@ -1,3 +1,10 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+
 /* .ui.compact.grid .row:not(:first-child),
 .ui.grid .compact.row {
   padding-top: 0;
@@ -20,6 +27,12 @@
 .ui.grid > .purple.column,
 .ui.grid > .purple.row,
 .ui.grid > .row > .purple.column {
-  background-color: rgb(233, 233, 233) !important;
+  background-color: white !important;
   color: black;
+}
+
+.OrderRoot{
+  max-height: 100vh !important;
+  margin-bottom: 0px !important;
+  overflow: hidden;
 }

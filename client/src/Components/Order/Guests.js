@@ -7,17 +7,22 @@ import './Guests.css'
 
 
 const content = {
-    height: '540px',
+    maxHeight: '380px',
     overflow: 'auto',
     scrollbarWidth: '0px',
-    paddingLeft:'1px',
-    paddingTop:'10px'
+    paddingLeft:'14px',
+    paddingRight:'0 !important',
+    paddingTop:'0px',
+    overflowY: 'scroll',
+    display: 'flex !important',
+    flexDirection:'column !important',
+    alignItems:'space-between !important',
   }
 
 
 
 export default function Guests() {
-const [numberOfGuests] = useState(4)
+const [numberOfGuests] = useState(8)
 
   return (
     <Container style={content}>
