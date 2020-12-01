@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SET_ACCORDIONINDEX, SET_CURRENTGUEST } from "./actions";
+import { SET_ACCORDIONINDEX, SET_CURRENTGUEST, SET_GUESTCOUNT, SET_GUESTITEMSOBJECT } from "./actions";
 
 
 
@@ -16,10 +16,34 @@ function accordionIndexReducer(state=(-1), action) {
     }
 }
 
-function currentGuestReducer(state=(0), action) {
+function currentGuestReducer(state=(1), action) {
     switch (action.type) {
         case SET_CURRENTGUEST:
             return action.payload.currentGuest
+        
+        
+            
+            default:
+            return state;
+    }
+}
+
+function guestCountReducer(state=(1), action) {
+    switch (action.type) {
+        case SET_GUESTCOUNT:
+            return action.payload.guestCount
+        
+        
+            
+            default:
+            return state;
+    }
+}
+
+function guestItemsObjectReducer(state={1:[]}, action) {
+    switch (action.type) {
+        case SET_GUESTITEMSOBJECT:
+            return action.payload.guestItemsObject
         
         
             
@@ -63,4 +87,6 @@ export const rootReducer = combineReducers({
     currentGuest: currentGuestReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
+    guestCount: guestCountReducer,
+    guestItemsObject: guestItemsObjectReducer
 })

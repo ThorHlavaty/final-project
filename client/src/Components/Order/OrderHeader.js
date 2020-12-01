@@ -3,27 +3,32 @@ import { useDispatch, useSelector } from 'react-redux'
 import {   Menu } from 'semantic-ui-react'
 import { setCurrentGuest } from '../../redux/actions'
 import './OrderHeader.css'
+import { setCurrentGuest, setGuestCount } from '../../redux/actions'
 
 export default function OrderHeader() {
   const dispatch = useDispatch()
-  const [guestCount, setGuestCount] = useState(4)
+  const guestCount = useSelector(state=>state.guestCount)
   const [activeItem, setActiveItem] = useState('')
   const currentGuest = useSelector(state=>state.currentGuest)
 
   function removeGuest(){
-    if(guestCount === 0){
+    if(guestCount === 1){
       return
     }else{
-      setGuestCount(guestCount - 1)
-      if (currentGuest > guestCount) {
-        setCurrentGuest(guestCount)
+      if (currentGuest === guestCount) {
+        dispatch(setCurrentGuest(currentGuest - 1))
+        dispatch(setGuestCount(guestCount - 1))
+        setActiveItem('removeGuest')
+      }
+      else{
+        dispatch(setGuestCount(guestCount - 1))
         setActiveItem('removeGuest')
       }  
     }
   }
   
   function addGuest(){  
-    setGuestCount(guestCount + 1)    
+    dispatch(setGuestCount(guestCount + 1))    
     setActiveItem('addGuest')
         
     }
@@ -31,7 +36,7 @@ export default function OrderHeader() {
 
   function previousGuest(){ 
     setActiveItem('previousGuest')
-    return (currentGuest > 0 ? dispatch(setCurrentGuest(currentGuest - 1)) : console.log("can't go that low"))
+    return (currentGuest > 1 ? dispatch(setCurrentGuest(currentGuest - 1)) : console.log("can't go that low"))
   }
 
   function nextGuest(){ 

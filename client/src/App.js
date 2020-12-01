@@ -3,7 +3,6 @@
 
 
 import './App.css';
-import TableLayout from './Components/TableLayout';
 
 // import Registration from './Registration'
 
@@ -14,11 +13,13 @@ import {Link, Route, Switch} from 'react-router-dom'
 import Dashboard from './Dashboard';
 
 import Order from './Components/Order/Order';
+import TableLayout from './Components/TableLayout';
 
 import PrivateRoute from './Components/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux'
 import { checkAuth } from './redux/actions';
 import {signout} from '../src/redux/actions'
+
 import Register from './pages/Register/Register';
 import Loading from './pages/Loading/Loading';
 import Home from './pages/Home/Home';
@@ -38,7 +39,9 @@ function App() {
   },[dispatch])
 
   if(!check && !userInfo){
+
     return <Loading/>
+
   }
 else{
   return (
@@ -58,8 +61,6 @@ else{
 
       {userInfo ? (
       <Link to='/' onClick={signoutHandler}>Sign Out</Link>) : (<Link to='/users/login'>Login</Link>)} */}
-
-
 
 
       <Switch>

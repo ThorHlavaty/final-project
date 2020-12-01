@@ -8,7 +8,7 @@ const db = require('../models')
 
 // Create Guest Seat
 // URL: /api/v1/guest/:tableId
-router.post('/:tableId', (req,res) => {
+router.post('/:table_id', (req,res) => {
   const {seat} = req.body
 
 
@@ -18,7 +18,7 @@ router.post('/:tableId', (req,res) => {
 
   db.Guest.create({
     seat,
-    TableId: req.params.id
+    TableId: req.params.table_id
   })
   .then((result) => {
     res.json({success: 'Seat number entered'})
@@ -31,11 +31,11 @@ router.post('/:tableId', (req,res) => {
 
 
 // Get All Guest By Table ID
-// URL: /api/v1/guest
-router.get('/:tableId', (req,res)=>{
+// URL: /api/v1/guest/:tableId
+router.get('/:table_id', (req,res)=>{
   db.Guest.findAll({
     where:{
-      tableId: req.params.id
+      TableId: req.params.table_id
     }
   })
   .then(guests => res.json(guests))
@@ -58,10 +58,10 @@ router.get('/:tableId', (req,res)=>{
 
 // Delete Guest Seat based on ID
 // URL: /api/v1/guest/:deleteId
-router.delete('/:deleteId', (req,res)=>{
+router.delete('/:delete_id', (req,res)=>{
   db.Guest.destroy({
     where: {
-      id: req.params.deleteId,
+      id: req.params.delete_id,
     }
   })
   .then(deleted => {
