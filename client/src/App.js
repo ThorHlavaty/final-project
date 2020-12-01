@@ -4,7 +4,7 @@
 
 import './App.css';
 
-import Registration from './Registration'
+// import Registration from './Registration'
 
 import React, { useEffect} from 'react';
 import './App.css';
@@ -53,24 +53,21 @@ else{
       {/* <Link to='/users/register'>Register</Link>
       <Link to='/users/login'>Login</Link>
       <Link to='/users/dashboard'>Dashboard</Link>
-      <Link to='/table/id'>Table Test page</Link> */}
+      <Link to='/table/id'>Table Test page</Link>
 
       <Link to='/users/register'>Register</Link>
 
       <Link to='/users/dashboard'>Dashboard</Link>
 
       {userInfo ? (
-      <Link to='/' onClick={signoutHandler}>Sign Out</Link>) : (<Link to='/users/login'>Login</Link>)}
+      <Link to='/' onClick={signoutHandler}>Sign Out</Link>) : (<Link to='/users/login'>Login</Link>)} */}
 
 
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/users/register' component={Register}/>
         {/* <Route exact path='/users/register' component={Registration}/> */}
-        <Route exact path='/users/login' component={Login}/>
-
-        {/* <Route exact path='/users/dashboard' component={Dashboard}/> */}
-
+        <Route exact path='/users/login' component={Login}/>      
         <Route exact path='/table'  component={TableLayout}/>
         <Route exact path='/users/dashboard' component={Dashboard}/>
         <Route exact path='/table/id' component={Order}/>

@@ -6,10 +6,11 @@ import {register} from '../../redux/actions'
 import { useDispatch } from 'react-redux'
 import { MdTrackChanges } from "react-icons/md";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     root: {
-      background: '#1F526B',
+      background: '#000',
       padding: 0,
       margin:0,
       width: '100%',
@@ -19,7 +20,7 @@ const useStyles = makeStyles(() => ({
       
     },
     button: {
-      background: '#2babec !important',
+      background: '#74bff8 !important',
       color:'white !important'
       
     },
@@ -37,7 +38,7 @@ const useStyles = makeStyles(() => ({
       
     },
     formLabel: { 
-      color:'#1F526B !important'
+      color:'#000 !important'
       
     },
     logo: { 
@@ -45,7 +46,7 @@ const useStyles = makeStyles(() => ({
       
     },
     h1:{
-      color:'#1F526B !important',
+      color:'#000 !important',
       alignSelf: 'center',
       marginBottom: '30px !important'
     },
@@ -132,20 +133,23 @@ export default function Register() {
                       className={classes.formLabel} >
                         New Pin
                     </label>
+                    <div className={classes.pwBar}>
                     <input 
                       placeholder='Pin' 
                       required 
                       onChange={handlePin} 
                       value={pin}
                       name='pin'
+                      type={visibility ? 'password' : 'text'}
                     />
-                    {<Button 
+                    <Button 
                       className={classes.seek} 
                       onClick={visible} 
                       type='submit'>
                       {visibility ? <BsEyeFill/> 
                       : <BsEyeSlashFill/>}
-                    </Button>}
+                    </Button>
+                    </div>
                 </Form.Field>
                 {/* <Form.Field>
                     <label className={classes.formLabel} >Manager</label>
@@ -155,7 +159,8 @@ export default function Register() {
                     <label className={classes.formLabel} >Manager Pin</label>
                     <input placeholder='Pin' />
                 </Form.Field> */}
-                <Button id='svg' className={`${classes.button} `}type='submit' onClick={handleFormSubmit}>Sign Up</Button>
+                <Button id='svg' className={classes.button}type='submit' onClick={handleFormSubmit}>Sign Up</Button>
+                <Link to='/users/login'>Login</Link>
             </Form>
         </div>
     )

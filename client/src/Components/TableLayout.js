@@ -1,6 +1,7 @@
 import React from 'react'
 import ImageMapper from 'react-image-mapper'
 import LayoutImage from '../Images/TableLayout.png'
+import './TableLayout.css'
 
 export default function TableLayout() {
 
