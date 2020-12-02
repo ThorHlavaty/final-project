@@ -4,7 +4,7 @@ const db = require('../models')
 
 
 
-// Create Section
+// Assign Section
 // URL: /api/v1/section/:section_id
 router.put('/:section_id', (req,res) => {
   const {user_id} = req.body

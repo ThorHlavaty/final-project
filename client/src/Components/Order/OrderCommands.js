@@ -38,7 +38,7 @@ export default function OrderCommands() {
         })
         .then(res => {
           dispatch(setTotalBill(0.00))
-          history.push('/table')
+          history.push('/users/dashboard')
         })
         .catch(err =>{console.log(err)})
       })
