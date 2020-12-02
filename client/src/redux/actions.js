@@ -6,6 +6,7 @@ export const SET_GUESTCOUNT = 'SET_GUESTCOUNT'
 export const SET_GUESTITEMSOBJECT = 'SET_GUESTITEMSOBJECT'
 export const SET_TABLEID = 'SET_TABLEID'
 export const SET_TABLENUM = 'SET_TABLENUM'
+export const SET_TOTALBILL = 'SET_TOTALBILL'
 
 
 
@@ -42,6 +43,15 @@ export function setGuestItemsObject(guestItemsObject) {
         type: SET_GUESTITEMSOBJECT,
         payload: {
             guestItemsObject
+        }
+    }
+}
+
+export function setTotalBill(totalBill) {
+    return {
+        type: SET_TOTALBILL,
+        payload: {
+            totalBill
         }
     }
 }

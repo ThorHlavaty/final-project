@@ -25,10 +25,31 @@ router.post('/', (req,res) => {
 
 })
 
+router.get('/:table_id', (req, res) => {
+  db.Table.findByPk(req.params.table_id, {
+    include: [
+      {
+        model: db.Guest,
+        include: [{
+          model: db.Item
+        }]
+      }
+    ]
+  })
+  .then(table => {
+    if (table) {
+      res.json(table)
+    }
+    else{
+      res.status(404).json({error:'could not find table'})
+    }
+  })
+})
+
 // Delete Table based on ID
 // URL: /api/v1/guest/:tableId
 router.delete('/:table_id', (req,res)=>{
-  db.Guest.destroy({
+  db.Table.destroy({
     where: {
       id: req.params.table_id,
       SectionId: req.user.id

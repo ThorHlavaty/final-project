@@ -62,7 +62,7 @@ router.put('/:guest_id', (req,res)=>{
 })
 
 router.get('/:guest_id', (req,res)=>{
-  db.Guest.findAll({
+  db.Item.findAll({
     where:{
       GuestId: req.params.guest_id
     }

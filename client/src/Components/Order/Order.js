@@ -5,13 +5,13 @@ import OrderCommands from './OrderCommands'
 import Guests from './Guests'
 import { Grid } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setAccordionIndex } from '../../redux/actions'
+import { setAccordionIndex, setGuestCount, setGuestItemsObject, setTableId, setTableNum } from '../../redux/actions'
 import 'semantic-ui-css/semantic.min.css';
 import './Order.css'
 import OrderHeader from './OrderHeader'
 import OrderHeaderMobile from './OrderHeaderMobile'
 import Axios from 'axios'
-import { compareSync } from 'bcrypt'
+import { useParams } from 'react-router-dom'
 
 const content = {
     backgroundColor: '#C0E9ED',
@@ -29,15 +29,25 @@ const content = {
 export default function Order() {
 const dispatch = useDispatch()
 const tableId = useSelector(state => state.tableId)
+const { id } = useParams()
+
 
 useEffect(()=>{
   dispatch(setAccordionIndex(-1))
-  // Axios.get(`/api/v1/guest/${tableId}`)
-  // .then(res => {res.data.map(guest => {
-  //   Axios.get(`/api/v1/item/${guest.id}`)
-  //   .then(res => {console.log(res)})
-  // })})
-},[dispatch])
+  dispatch(setTableId(id))
+  dispatch(setGuestCount(1))
+  Axios.get(`/api/v1/table/${tableId}`)
+  .then(res => {
+    dispatch(setTableNum(res.data.number))
+    let currentOrder = {0:[]}
+    res.data.Guests.forEach(order => {
+      currentOrder[order.seat] = order.Items.map(item =>[item.name, item.cost])
+    })
+    dispatch(setGuestItemsObject(currentOrder))
+    let seatNum = res.data.Guests.reduce((prev, curr, i)=> (curr.seat > prev ? curr.seat : prev), 1)
+    dispatch(setGuestCount(seatNum))
+  })
+},[dispatch, tableId, id])
   
   return (
     <>

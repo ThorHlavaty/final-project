@@ -1,18 +1,22 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import ImageMapper from 'react-image-mapper'
 import LayoutImage from '../Images/TableLayout.png'
 import {  useDispatch } from 'react-redux'
-import { setTableId, setTableNum } from '../redux/actions'
+import { setTableId, setTableNum, setTotalBill } from '../redux/actions'
 import { useHistory } from 'react-router-dom'
 
 export default function TableLayout() {
     const dispatch = useDispatch()
     const history = useHistory()
 
+    useEffect(()=>{
+        dispatch(setTotalBill(0.00))
+    },[dispatch])
+    
     const handleClicked = (area) => {
         dispatch(setTableId(area.tableId))
         dispatch(setTableNum(area.name))
-        history.push(`table/${area.name}`)
+        history.push(`table/${area.tableId}`)
     }
 
 

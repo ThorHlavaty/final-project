@@ -3,8 +3,11 @@ import { Container, Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './OrderCommands.css'
 import { Link, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
+import {  useSelector } from 'react-redux'
 import Axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { setTotalBill } from '../../redux/actions';
+
 
 
 export default function OrderCommands() {
@@ -16,12 +19,14 @@ export default function OrderCommands() {
   function handleSubmit(){
   
     //put each guest from our order object into guests by table Id
+    // eslint-disable-next-line array-callback-return
     Object.keys(guestItemsObject).map(seatNum => {
       Axios.post('/api/v1/guest', {
         seat: seatNum,
         TableId: tableId
         })
         .then(res => {
+          // eslint-disable-next-line array-callback-return
           guestItemsObject[res.data.result.seat].map(item => {
             Axios.post('/api/v1/item', {
               name: item[0],
@@ -32,6 +37,7 @@ export default function OrderCommands() {
           })
         })
         .then(res => {
+          dispatch(setTotalBill(0.00))
           history.push('/table')
         })
         .catch(err =>{console.log(err)})
