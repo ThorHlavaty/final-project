@@ -17,7 +17,7 @@ export default function TableLayout() {
     const handleClicked = (area) => {
         dispatch(setTableId(area.tableId))
         dispatch(setTableNum(area.name))
-        history.push(`table/${area.tableId}`)
+        history.push(`/users/table/${area.tableId}`)
     }
 
 
