@@ -9,6 +9,7 @@ export default function TableLayout() {
         console.log(area)
     }
 
+    const pageWidth = '100vw'
 
     const layoutMap = {
         name: "my-map",
@@ -45,8 +46,8 @@ export default function TableLayout() {
     }
 
     return (
-        <div>
-            <ImageMapper src={LayoutImage} map={layoutMap} width={1463} onClick={handleClicked} imgWidth={1463}/>
+        <div className='layout'>
+            <ImageMapper className="" src={LayoutImage} map={layoutMap} width={900} onClick={handleClicked} imgWidth={1463}/>
         </div>
     )
 }
