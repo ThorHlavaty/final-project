@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid } from 'semantic-ui-react';
+import {  Grid } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import './OrderCommands.css'
 import { Link, useHistory } from 'react-router-dom';
@@ -50,23 +50,50 @@ export default function OrderCommands() {
   return (
     <Grid columns={2}>
       <Grid.Row>
-      <Grid.Column style={{border:"1px solid black"}} color='blue'> 
-        <Link onClick={()=> handleSubmit()}>
-        <Container textAlign='center'  fluid>Send</Container>
-        </Link>
+      <Grid.Column style={{border:"1px solid white",
+                           display: 'flex',
+                           justifyContent: 'center',
+                           alignItems: 'center',
+                           fontSize: '2rem',
+                           margin:'14px !important'
+                           
+      }} color='black'> 
+      <Link onClick={()=> handleSubmit()}>
+                    Send
+      </Link>
         </Grid.Column>
-        <Grid.Column  style={{borderTop:"1px solid black", borderRight:"1px solid black", borderBottom:"1px solid black"}}  color='green'>
-        <Container textAlign='center' fluid>Pay</Container>
+        <Grid.Column  style={{borderTop:"1px solid white", 
+                              borderRight:"1px solid black", 
+                              borderBottom:"1px solid white",
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              fontSize: '2rem'
+                              
+                              }}  color='black'>
+                          Pay
         </Grid.Column>
       </Grid.Row>
       <Grid.Row >
-        <Grid.Column style={{borderLeft:"1px solid black", borderRight:"1px solid black", borderBottom:"1px solid black"}} color='grey'  > 
+        <Grid.Column style={{borderLeft:"1px solid white", 
+                             borderRight:"1px solid white", 
+                             display: 'flex',
+                             justifyContent: 'center',
+                             alignItems: 'center',
+                             fontSize: '2rem'
+                            }} color='black'  > 
         <Link style={{color:'white'}} to='/table'>          
-        <Container textAlign='center' fluid>Cancel</Container>
+        Cancel
         </Link>
         </Grid.Column>
-        <Grid.Column style={{borderRight:"1px solid black", borderBottom:"1px solid black"}} color='red' >
-        <Container  textAlign='center' fluid>Void</Container>
+        <Grid.Column style={{ borderBottom:"1px solid black",
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              fontSize: '2rem'
+      
+      }} color='black' >
+                Void
         </Grid.Column>
       </Grid.Row>
     </Grid>

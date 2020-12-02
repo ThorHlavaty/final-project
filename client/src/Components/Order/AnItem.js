@@ -3,6 +3,7 @@ import { Grid } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTotalBill } from '../../redux/actions'
 
+import './Guest.css'
 
 export default function AnItem(props) {
   const dispatch = useDispatch()
@@ -15,7 +16,7 @@ export default function AnItem(props) {
 
 
   return (
-    <div>
+    <div className='guest'>
     <Grid divided style={{fontSize:'12px'}}>
     <Grid.Column width={8}  style={{fontSize:'12px'}}>
       {props.shorthand}

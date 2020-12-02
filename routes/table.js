@@ -7,7 +7,7 @@ const db = require('../models')
 // Create Table
 // URL: /api/v1/table
 router.post('/', (req,res) => {
-  const {number} = req.body
+  const {number, SectionId} = req.body
 
 
   if (!number) {
@@ -16,7 +16,7 @@ router.post('/', (req,res) => {
 
   db.Table.create({
     number,
-    SectionId: req.user.id
+    SectionId
   })
   .then((result) => {
     res.json({success: 'Table number entered'})

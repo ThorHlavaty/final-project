@@ -1,4 +1,6 @@
 import React from 'react'
+import { Grid } from 'semantic-ui-react'
+import './Guest.css'
 import { useSelector } from 'react-redux'
 import AnItem from './AnItem'
 
@@ -8,7 +10,7 @@ export default function Guest(props) {
   
   function colorSelect(){
     if (currentGuest === props.id){
-      return ('powderblue')
+      return ('#74bff8')
     }
     else{
       return 'white'
@@ -16,11 +18,14 @@ export default function Guest(props) {
   }
   
   return (
-    <span>
-    <h3 style={{background:colorSelect(), marginTop:'10px'}}>
-      Guest {props.id}:
-    </h3>
-    {(guestItemsObject[props.id] !== undefined) &&  guestItemsObject[props.id].map((item, index) => ( <AnItem index={index} shorthand={item[0]} price={item[1]} />))}
-    </span>
+    <>
+     
+      <span className='guest'>
+      <h3 style={{background:colorSelect(), marginTop:'10px'}}>
+        Guest {props.id}:
+      </h3>
+      {(guestItemsObject[props.id] !== undefined) &&  guestItemsObject[props.id].map((item, index) => ( <AnItem index={index} shorthand={item[0]} price={item[1]} />))}
+      </span>
+  </>
   )
 }

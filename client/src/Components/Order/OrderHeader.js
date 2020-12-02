@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {   Menu } from 'semantic-ui-react'
+
+import './OrderHeader.css'
 import { setCurrentGuest, setGuestCount } from '../../redux/actions'
 
 export default function OrderHeader() {
@@ -44,9 +46,9 @@ export default function OrderHeader() {
   }
   
   return (
-    <Menu inverted fluid style={{justifyContent:'center'}}>
+    <Menu className='menu' inverted fluid style={{justifyContent:'center'}}>
         <Menu.Item
-          style={{justify:'right'}}
+          style={{justify:'right', borderLeft:  '1px solid rgba(255,255,255,.08)'}}
           name='Table #'
         >
           Table #: {tableNum}

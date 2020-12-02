@@ -4,6 +4,7 @@ import LayoutImage from '../Images/TableLayout.png'
 import {  useDispatch } from 'react-redux'
 import { setTableId, setTableNum, setTotalBill } from '../redux/actions'
 import { useHistory } from 'react-router-dom'
+import './TableLayout.css'
 
 export default function TableLayout() {
     const dispatch = useDispatch()
