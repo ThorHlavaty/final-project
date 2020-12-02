@@ -5,21 +5,21 @@ const db = require('../models')
 // Create Item
 // URL: /api/v1/item
 router.post('/', (req,res) => {
-  const {name, cost, type, guest_id} = req.body
+  const {name, cost, onSeat, GuestId} = req.body
 
 
-  if (!name || !cost || !type) {
+  if (!name || !cost ) {
     res.status(404).json({error: 'Enter all fields'})
   }
 
   db.Item.create({
     name,
     cost,
-    type,
-    GuestId: guest_id
+    onSeat,
+    GuestId
   })
   .then((result) => {
-    res.json({success: 'All items entered'})
+    res.json({result})
   })
   .catch(err => console.log(err))
 })
@@ -28,9 +28,9 @@ router.post('/', (req,res) => {
 // Update Item per Guest
 // URL: /api/v1/item/:guestId
 router.put('/:guest_id', (req,res)=>{
-  const {name, cost, type, guest_id} = req.body
+  const {name, cost, onSeat, guest_id} = req.body
 
-  if (!req.body || !req.body.name || req.body.cost || req.body.type) {
+  if (!req.body || !req.body.name || req.body.cost || req.body.onSeat) {
     res.status(400).json({
       error: 'Enter all fields'
     });
@@ -40,7 +40,7 @@ router.put('/:guest_id', (req,res)=>{
     where:{
       name,
       cost,
-      type,
+      onSeat,
       GuestId: guest_id
     }
   }, {
@@ -61,7 +61,14 @@ router.put('/:guest_id', (req,res)=>{
   })
 })
 
-
+router.get('/:guest_id', (req,res)=>{
+  db.Item.findAll({
+    where:{
+      GuestId: req.params.guest_id
+    }
+  })
+  .then(items => res.json(items))
+})
 
 // Delete an Item
 // URL: /api/v1/item/:itemId

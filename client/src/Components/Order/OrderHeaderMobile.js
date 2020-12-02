@@ -9,6 +9,7 @@ export default function OrderHeaderMobile() {
   const [guestCount, setGuestCount] = useState(4)
   const [activeItem, setActiveItem] = useState('')
   const currentGuest = useSelector(state=>state.currentGuest)
+  const tableNum = useSelector(state => state.tableNum)
 
   function removeGuest(){
     if(guestCount === 0){
@@ -79,7 +80,7 @@ export default function OrderHeaderMobile() {
           name='Table #'
           style={{padding:'0px, 0px'}}
         >
-          #21
+          #{tableNum}
       </Menu.Item>
       </Menu>
   )

@@ -4,6 +4,9 @@ export const SET_ACCORDIONINDEX = 'SET_ACCORDIONINDEX'
 export const SET_CURRENTGUEST = 'SET_CURRENTGUEST'
 export const SET_GUESTCOUNT = 'SET_GUESTCOUNT'
 export const SET_GUESTITEMSOBJECT = 'SET_GUESTITEMSOBJECT'
+export const SET_TABLEID = 'SET_TABLEID'
+export const SET_TABLENUM = 'SET_TABLENUM'
+export const SET_TOTALBILL = 'SET_TOTALBILL'
 
 
 
@@ -43,6 +46,34 @@ export function setGuestItemsObject(guestItemsObject) {
         }
     }
 }
+
+export function setTotalBill(totalBill) {
+    return {
+        type: SET_TOTALBILL,
+        payload: {
+            totalBill
+        }
+    }
+}
+
+export function setTableId(tableId) {
+    return {
+        type: SET_TABLEID,
+        payload: {
+            tableId
+        }
+    }
+}
+
+export function setTableNum(tableNum) {
+    return {
+        type: SET_TABLENUM,
+        payload: {
+            tableNum
+        }
+    }
+}
+
 
 export const register = (name, pin) => async(dispatch) => {
     dispatch({ 
