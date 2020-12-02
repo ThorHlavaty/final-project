@@ -10,6 +10,7 @@ export default function OrderHeader() {
   const guestCount = useSelector(state=>state.guestCount)
   const [activeItem, setActiveItem] = useState('')
   const currentGuest = useSelector(state=>state.currentGuest)
+  const tableNum = useSelector(state => state.tableNum)
 
   function removeGuest(){
     if(guestCount === 1){
@@ -50,7 +51,7 @@ export default function OrderHeader() {
           style={{justify:'right', borderLeft:  '1px solid rgba(255,255,255,.08)'}}
           name='Table #'
         >
-          Table #: 21
+          Table #: {tableNum}
         </Menu.Item>  
       <Menu.Item
         name='Add Guest'

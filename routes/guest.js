@@ -7,9 +7,9 @@ const db = require('../models')
 
 
 // Create Guest Seat
-// URL: /api/v1/guest/:tableId
-router.post('/:table_id', (req,res) => {
-  const {seat} = req.body
+// URL: /api/v1/guest/
+router.post('/', (req,res) => {
+  const {seat, TableId} = req.body
 
 
   if (!seat) {
@@ -18,10 +18,10 @@ router.post('/:table_id', (req,res) => {
 
   db.Guest.create({
     seat,
-    TableId: req.params.table_id
+    TableId
   })
   .then((result) => {
-    res.json({success: 'Seat number entered'})
+    res.json({result})
   })
   .catch(err => console.log(err))
 
