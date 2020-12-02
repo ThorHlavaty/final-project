@@ -5,7 +5,7 @@ import OrderCommands from './OrderCommands'
 import Guests from './Guests'
 import { Grid } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setAccordionIndex, setGuestCount, setGuestItemsObject, setTableId, setTableNum } from '../../redux/actions'
+import { setAccordionIndex, setCurrentGuest, setGuestCount, setGuestItemsObject, setTableId, setTableNum } from '../../redux/actions'
 import 'semantic-ui-css/semantic.min.css';
 import './Order.css'
 import OrderHeader from './OrderHeader'
@@ -36,6 +36,7 @@ useEffect(()=>{
   dispatch(setAccordionIndex(-1))
   dispatch(setTableId(id))
   dispatch(setGuestCount(1))
+  dispatch(setCurrentGuest(1))
   Axios.get(`/api/v1/table/${tableId}`)
   .then(res => {
     dispatch(setTableNum(res.data.number))

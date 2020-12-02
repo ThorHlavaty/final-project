@@ -23,7 +23,6 @@ const content = {
 
 
 export default function Guests() {
-const [numberOfGuests] = useState(8)
 const guestCount = useSelector(state => state.guestCount)
 
   return (
