@@ -10,7 +10,7 @@ export default function Guest(props) {
   
   function colorSelect(){
     if (currentGuest === props.id){
-      return ('powderblue')
+      return ('#74bff8')
     }
     else{
       return 'white'
@@ -19,21 +19,8 @@ export default function Guest(props) {
   
   return (
     <>
-      <div className="guest">
-        <h3>
-          Guest {props.id}:
-        </h3>
-        <Grid divided style={{fontSize:'1rem'}}>
-        <Grid.Column></Grid.Column> 
-        <Grid.Column style={{fontSize:'1rem', width:'14vw'}}>
-          CHIX TACO
-        </Grid.Column>
-        <Grid.Column  className="price" style={{fontSize:'1rem', width:'31vw', textAlign:'right'}}>
-          Total: $8.95
-        </Grid.Column>
-      </Grid>
-    </div>
-      <span>
+     
+      <span className='guest'>
       <h3 style={{background:colorSelect(), marginTop:'10px'}}>
         Guest {props.id}:
       </h3>

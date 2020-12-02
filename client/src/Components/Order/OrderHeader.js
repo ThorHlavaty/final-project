@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {   Menu } from 'semantic-ui-react'
-import { setCurrentGuest } from '../../redux/actions'
+
 import './OrderHeader.css'
 import { setCurrentGuest, setGuestCount } from '../../redux/actions'
 

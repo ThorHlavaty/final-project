@@ -13,7 +13,9 @@ export default function OrderCommands() {
                            display: 'flex',
                            justifyContent: 'center',
                            alignItems: 'center',
-                           fontSize: '2rem'
+                           fontSize: '2rem',
+                           margin:'14px !important'
+                    
       }} color='black'> 
                     Send
         </Grid.Column>
