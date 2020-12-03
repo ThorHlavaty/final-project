@@ -1,0 +1,15 @@
+.rootPage{
+    display: flex;
+    max-height: 100vh;
+}
+
+
+.tableLayout{
+    /* position: absolute;
+} */
+
+.servers{
+    position: relative;
+    align-self: flex-end !important;
+    right:0px !important
+}

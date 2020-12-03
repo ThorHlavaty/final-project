@@ -1,0 +1,9 @@
+.layout{
+    display: flex !important;
+    align-content: center !important;
+    justify-content: flex-start;
+    
+    top: 0;
+    transform: rotate(45deg)
+}
+

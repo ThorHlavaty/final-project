@@ -5,6 +5,7 @@ import {  useDispatch } from 'react-redux'
 import { setTableId, setTableNum, setTotalBill } from '../redux/actions'
 import { useHistory } from 'react-router-dom'
 import './TableLayout.css'
+import OrderHeader from './Order/OrderHeader'
 
 export default function TableLayout() {
     const dispatch = useDispatch()
@@ -59,6 +60,7 @@ export default function TableLayout() {
     return (
         <div className='layout'>
             <ImageMapper className="" src={LayoutImage} map={layoutMap} width={900} onClick={handleClicked} imgWidth={1463}/>
+            {/* <OrderHeader/> */}
         </div>
     )
 }

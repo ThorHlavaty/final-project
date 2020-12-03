@@ -1,0 +1,13 @@
+.layout{
+   top: 200px;
+    display: flex !important;
+    align-content: center !important;
+    justify-content: center !important;
+    background-color: #000 ;
+    transform: rotate(90deg);
+}
+#root{
+    background-color: black; 
+    height: 100vh
+}
+

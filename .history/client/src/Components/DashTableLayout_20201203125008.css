@@ -1,0 +1,17 @@
+.layout2{
+    top: 200px;
+     
+     justify-content: center !important;
+     flex-direction: column;
+     /* transform: rotate(90deg); */
+     border-radius: 0px;
+     border: n;
+ }
+ .layout img{
+    padding: 0;
+    top: 0
+ }
+ #root{
+     
+     /* height: 100vh */
+ }
