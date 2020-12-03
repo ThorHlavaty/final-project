@@ -59,7 +59,7 @@ export default function TableLayout() {
 
     return (
         <div className='layout'>
-            <ImageMapper className="" src={LayoutImage} map={layoutMap} width={900} onClick={handleClicked} imgWidth={1463}/>
+            <ImageMapper className="" src={LayoutImage} map={layoutMap} width={9} onClick={handleClicked} imgWidth={1463}/>
             {/* <OrderHeader/> */}
         </div>
     )
