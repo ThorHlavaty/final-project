@@ -28,9 +28,10 @@ router.post('/', (req,res) => {
 // Update Item per Guest
 // URL: /api/v1/item/:guestId
 router.put('/:guest_id', (req,res)=>{
-  const {name, cost, onSeat, guest_id} = req.body
+  const {name, cost, onSeat, GuestId} = req.body
+  const {guest_id} = req.params
 
-  if (!req.body || !req.body.name || req.body.cost || req.body.onSeat) {
+  if (!req.body || !name || cost || onSeat) {
     res.status(400).json({
       error: 'Enter all fields'
     });
@@ -41,10 +42,10 @@ router.put('/:guest_id', (req,res)=>{
       name,
       cost,
       onSeat,
-      GuestId: guest_id
+      GuestId
     }
   }, {
-      GuestId: req.params.guest_id
+      guest_id
     }
   )
   .then(updated => {

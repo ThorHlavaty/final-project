@@ -27,12 +27,12 @@ export default function OrderCommands() {
         })
         .then(res => {
           // eslint-disable-next-line array-callback-return
-          guestItemsObject[res.data.result.seat].map(item => {
+          guestItemsObject[res.data.seat].map(item => {
             Axios.post('/api/v1/item', {
               name: item[0],
               cost: item[1],
-              onSeat: res.data.result.seat,
-              GuestId: res.data.result.id
+              onSeat: res.data.seat,
+              GuestId: res.data.id
             })
           })
         })
