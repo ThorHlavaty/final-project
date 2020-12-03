@@ -40,9 +40,10 @@ useEffect(()=>{
   Axios.get(`/api/v1/table/${tableId}`)
   .then(res => {
     dispatch(setTableNum(res.data.number))
-    let currentOrder = {0:[]}
+    let currentOrder = {}
     res.data.Guests.forEach(order => {
-      currentOrder[order.seat] = order.Items.map(item =>[item.name, item.cost])
+      console.log(order.Items)
+      currentOrder[order.seat] = order.Items.map(item =>[item.name, item.cost, item.id ])
     })
     dispatch(setGuestItemsObject(currentOrder))
     let seatNum = res.data.Guests.reduce((prev, curr, i)=> (curr.seat > prev ? curr.seat : prev), 1)

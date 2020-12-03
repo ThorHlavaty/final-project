@@ -16,12 +16,18 @@ router.post('/', (req,res) => {
     res.status(404).json({error: 'Enter all fields'})
   }
 
-  db.Guest.create({
+  db.Guest.findOrCreate({
+    defaults:{
     seat,
     TableId
-  })
+    },
+  where:{
+    seat,
+    TableId
+}},
+  )
   .then((result) => {
-    res.json({result})
+    res.json(result[0])
   })
   .catch(err => console.log(err))
 
