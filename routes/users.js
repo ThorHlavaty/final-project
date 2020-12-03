@@ -39,7 +39,8 @@ router.get('/', (req, res)=>{
     return users.map(user => {
       return {
       id: user.id,
-      name: user.name
+      name: user.name,
+      manager: user.manager
     }})
   })
   .then(users => res.json(users))

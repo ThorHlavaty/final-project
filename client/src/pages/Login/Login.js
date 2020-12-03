@@ -2,7 +2,7 @@ import React, { useState , useEffect} from 'react'
 import { makeStyles} from '@material-ui/core'
 import './Login.css'
 import { Button, Form, Header } from 'semantic-ui-react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios';
 import { signin } from '../../redux/actions';
 import { useHistory, Link } from 'react-router-dom';
@@ -68,20 +68,6 @@ const useStyles = makeStyles(() => ({
       
     }
   }));
-  
-  
-    
-
-// fetch()
-// .then(response => response.json())
-// .then(data => {
-//    console.log(data)
-    
-// })
-// .catch(err => {
-//  console.error(err);
-// });
-   
 
 
 
@@ -99,27 +85,24 @@ export default function Login() {
 
   const [ visibility, setVisibility] = useState(true);
 
-  // Get All users and their id
-  // useEffect(()=>{
-  //   axios.get('/users')
-  //   .then(res => {
-  //     setUsers(res.data)
-  //   })
-  // },[])
+  const [isManager, setIsManager] = useState(false)
+
+  const {userInfo} = useSelector((state) => state.userSignin)
 
 
- const visible = (e) =>{
-   e.preventDefault()
-   setVisibility(!visibility)
- }
+  const visible = (e) =>{
+    e.preventDefault()
+    setVisibility(!visibility)
+  }
 
-  // Cleanup function
+  // Get All Users 
   useEffect(() => {
     axios.get('/users')
     .then(res => {
       setUsers(res.data)
     })
 
+    // Clean up function for useEffect
     const source = axios.CancelToken.source()
 
     const fetchUsers = async () => {
@@ -146,9 +129,14 @@ export default function Login() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(signin(id, pin))
+    dispatch(signin(id, pin ))
     .then(res => {
-      history.push('/users/dashboard')
+      console.log(userInfo)
+      if(isManager){
+        history.push('/managerDash')
+      }else{
+        history.push('/users/dashboard')
+      }
     })
     .catch(err =>  console.log(err))
   }
@@ -160,6 +148,13 @@ export default function Login() {
   }
 
   const handleID = (e) => {
+    const user = users.find((user)=>{
+      return user.id == e.target.value
+
+    })
+    if(user){
+      setIsManager(user.manager)
+    }
     setid(e.target.value)
   }
 
