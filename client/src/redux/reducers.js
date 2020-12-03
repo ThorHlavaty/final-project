@@ -80,13 +80,22 @@ function guestItemsObjectReducer(state={1:[]}, action) {
     switch (action.type) {
         case SET_GUESTITEMSOBJECT:
             return action.payload.guestItemsObject
-        
+        case 'REMOVE_ITEM':
+            const {guestId, itemIndex} = action.payload
+            const newGuest = [...state[guestId]]
+            newGuest.splice(itemIndex,1)
+            return {
+                ...state,
+                [guestId]:newGuest
+            }
         
             
             default:
             return state;
     }
 }
+
+
 
 export const userRegisterReducer = (state = {}, action) => {
     switch(action.type) { 

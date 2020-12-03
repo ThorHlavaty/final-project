@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
-import { setCurrentGuest } from '../../redux/actions'
+import { setCurrentGuest, setGuestCount } from '../../redux/actions'
 
 
 export default function OrderHeaderMobile() {
   const dispatch = useDispatch()
-  const [guestCount, setGuestCount] = useState(4)
   const [activeItem, setActiveItem] = useState('')
   const currentGuest = useSelector(state=>state.currentGuest)
   const tableNum = useSelector(state => state.tableNum)
+  const guestCount = useSelector(state => state.guestCount)
 
   function removeGuest(){
     if(guestCount === 0){
       return
     }else{
-      setGuestCount(guestCount - 1)
+      dispatch(setGuestCount(guestCount - 1))
       if (currentGuest > guestCount) {
         setCurrentGuest(guestCount)
         setActiveItem('removeGuest')
@@ -24,7 +24,7 @@ export default function OrderHeaderMobile() {
   }
   
   function addGuest(){  
-    setGuestCount(guestCount + 1)    
+    dispatch(setGuestCount(guestCount + 1))
     setActiveItem('addGuest')
         
     }

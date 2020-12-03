@@ -6,7 +6,7 @@ import {register} from '../../redux/actions'
 import { useDispatch } from 'react-redux'
 import { MdTrackChanges } from "react-icons/md";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -88,6 +88,7 @@ export default function Register() {
   const [pin, setPin] = useState('');
 
   const [ visibility, setVisibility] = useState(true);
+  const history = useHistory()
 
 
   const visible = (e) =>{
@@ -99,6 +100,7 @@ export default function Register() {
     e.preventDefault();
     dispatch(register(name,pin))
     .then(res => {
+      history.push('/users/login')
       setName('')
       setPin('')
     })

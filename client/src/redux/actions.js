@@ -74,6 +74,26 @@ export function setTableNum(tableNum) {
     }
 }
 
+export const removeItem = (itemIndex, guestId, itemDBID=null) => async(dispatch) =>{
+    if(itemDBID){
+        try{
+            const {data} = await axios.delete(`/api/v1/item/${itemDBID}`)
+            dispatch({type: 'REMOVE_ITEM', payload: {
+                itemIndex,
+                guestId
+            }})
+        } catch(error){
+            console.log(error)
+            alert('Fail To Delete Item Try Again')
+        }
+    } else {
+            dispatch({type: 'REMOVE_ITEM', payload: {
+                itemIndex,
+                guestId
+            }})
+    }
+}
+
 
 export const register = (name, pin) => async(dispatch) => {
     dispatch({ 
