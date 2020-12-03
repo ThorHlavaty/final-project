@@ -1,0 +1,9 @@
+.serverBody{
+    background: black;
+    max-height: 100vw;
+    width: 0vw;
+    display: flex;
+    align-items: center;
+    overflow-y: scroll;
+    flex-direction: column;
+}
