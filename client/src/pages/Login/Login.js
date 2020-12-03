@@ -210,12 +210,12 @@ export default function Login() {
             <label 
             htmlFor="pin" 
             className={classes.formLabel} >
-              Pin 
+              PIN 
             </label>
             <div className={classes.pwBar}>
             <input 
               className={classes.pinInput}
-              placeholder='Pin' 
+              placeholder='PIN' 
               name='pin' 
               onChange={handlePin} 
               type={visibility ? 'password' : 'text'} 
@@ -229,9 +229,9 @@ export default function Login() {
               </Button>
               </div>
           </Form.Field>
-          <Button id='svg' className={classes.button} type='submit'>Login In</Button>
+          <Button id='svg' className={classes.button} type='submit'>Login</Button>
 
-          <Link to='/users/register'> Forgot Password?</Link>
+          <Link to='/users/register'>Forgot Password?</Link>
           <Link to='/users/register'>Register</Link>
         </Form>
       </div>
