@@ -1,0 +1,8 @@
+.layout{
+    display: flex !important;
+    align-content: center !important;
+    justify-content: center !important;
+    back
+    transform: rotate(90deg);
+}
+
