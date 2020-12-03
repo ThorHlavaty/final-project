@@ -8,7 +8,7 @@ export default function PrivateRoute({...args}) {
   const history = useHistory()
   
 
-  if(!userSignin.userInfo){
+  if(!userSignin.userInfo.manager){
     history.push('/users/login')
     return ''
   }
