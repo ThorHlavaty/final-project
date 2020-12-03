@@ -82,7 +82,7 @@ export default function OrderCommands() {
                              alignItems: 'center',
                              fontSize: '2rem'
                             }} color='black'  > 
-        <Link style={{color:'white'}} to='/table'>          
+        <Link style={{color:'white'}} to='/users/table'>          
         Cancel
         </Link>
         </Grid.Column>
