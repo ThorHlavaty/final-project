@@ -28,12 +28,13 @@ export default function OrderCommands() {
         .then(res => {
           // eslint-disable-next-line array-callback-return
           guestItemsObject[res.data.seat].map(item => {
+            if(item.length < 3){
             Axios.post('/api/v1/item', {
               name: item[0],
               cost: item[1],
               onSeat: res.data.seat,
               GuestId: res.data.id
-            })
+            })}
           })
         })
         .then(res => {
@@ -82,7 +83,7 @@ export default function OrderCommands() {
                              alignItems: 'center',
                              fontSize: '2rem'
                             }} color='black'  > 
-        <Link style={{color:'white'}} to='/users/table'>          
+        <Link style={{color:'white'}} to='/users/dashboard'>          
         Cancel
         </Link>
         </Grid.Column>

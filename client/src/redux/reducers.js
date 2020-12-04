@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SET_ACCORDIONINDEX, SET_CURRENTGUEST, SET_GUESTCOUNT, SET_GUESTITEMSOBJECT, SET_TABLEID, SET_TABLENUM, SET_TOTALBILL } from "./actions";
+import { ADD_TOTALBILL, REDUCE_TOTALBILL, SET_ACCORDIONINDEX, SET_CURRENTGUEST, SET_GUESTCOUNT, SET_GUESTITEMSOBJECT, SET_TABLEID, SET_TABLENUM, SET_TOTALBILL } from "./actions";
 
 
 
@@ -32,6 +32,12 @@ function totalBillReducer(state=(0.00), action) {
     switch (action.type) {
         case SET_TOTALBILL:
             return action.payload.totalBill
+        
+        case ADD_TOTALBILL:
+            return (action.payload.totalBill + state)
+        
+        case REDUCE_TOTALBILL:
+            return (state - action.payload.totalBill)
         
         
             
