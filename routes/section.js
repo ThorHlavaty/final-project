@@ -29,6 +29,28 @@ router.put('/:section_id', (req,res) => {
 
 })
 
+router.get('/', (req,res) => {  
+  db.Section.findAll()
+  .then(id => res.json(id))
+  
+})
+
+router.get('/:section_id/tables',(req,res)=>{
+  db.Table.findAll({
+    where:
+      {
+        SectionId: req.params.section_id
+      },
+      include:[db.Guest]
+  }).then(tables =>  {
+    if (tables) {
+    res.json(tables)
+  }
+  else{
+    res.status(404).json({error:'could not find table'})
+  }
+})
+})
 
 // Delete Section based on ID
 // URL: /api/v1/section/:section_id

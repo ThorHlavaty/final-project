@@ -25,6 +25,8 @@ router.post('/', (req,res) => {
 
 })
 
+
+
 router.get('/:table_id', (req, res) => {
   db.Table.findByPk(req.params.table_id, {
     include: [
@@ -43,6 +45,7 @@ router.get('/:table_id', (req, res) => {
     else{
       res.status(404).json({error:'could not find table'})
     }
+  
   })
 })
 

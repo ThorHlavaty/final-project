@@ -1,0 +1,11 @@
+.mobileTable{
+    display: flex;
+    flex-direction: row;
+}
+
+.nav{
+    justify-self: flex-start;
+}
+.board{
+    justify-self: flex-end;
+}

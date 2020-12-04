@@ -13,6 +13,7 @@ import Register from './pages/Register/Register';
 import Loading from './pages/Loading/Loading';
 import Home from './pages/Home/Home';
 import ManagerDashboard from './pages/ManagerDashboard/ManagerDashboard';
+import MobileTable from './pages/MobileTable/MobileTable';
 
 
 function App() {
@@ -44,6 +45,7 @@ else{
         <Route exact path='/' component={Home}/>
         <Route exact path='/users/register' component={Register}/>
         <Route exact path='/users/login' component={Login}/>     
+        <Route exact path='/users/mobile/board' component={MobileTable}/>     
         <ManagerPrivateRoute exact path='/managerDash' component={ManagerDashboard}/>
         <PrivateRoute exact path='/users/table/:id' component={Order}/>
         <PrivateRoute exact path='/users/dashboard' component={Dashboard}/>
