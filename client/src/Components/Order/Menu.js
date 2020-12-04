@@ -26,7 +26,7 @@ export default function Menu(props) {
           onClick={() => handleClick(props.index)}
           
         >
-      <h1>{props.title}<Icon name='dropdown' /></h1>
+      <h1>{props.title}<a href="#"><div class="fa fa-chevron-right rotate"></div></a></h1>
       </Accordion.Title>
       <Accordion.Content active={accordionIndex === props.index}>
             {menuData[props.title].map((item, index) => {

@@ -1,0 +1,10 @@
+.deleteButton{
+    outline: none;
+    border: none;
+    background: #ccc;
+    width: 3rem;
+    border-radius: 15px !important;
+    margin-left: 5px;
+    padding: 2px;
+    
+}
