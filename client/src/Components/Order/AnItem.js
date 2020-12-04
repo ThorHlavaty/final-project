@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Grid } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTotalBill, removeItem } from '../../redux/actions'
-
+import './AnItem.css'
 
 import './Guest.css'
 
@@ -30,7 +30,7 @@ export default function AnItem({shorthand, price, item, index, guest}) {
     </Grid.Column>
     <Grid.Column width={8} style={{fontSize:'12px', textAlign:'right'}}>
       {price}
-    <button onClick={deleteItem}>DELETE</button>
+    <button className='deleteButton' onClick={deleteItem}>DELETE</button>
     </Grid.Column>
   </Grid>
     </div>

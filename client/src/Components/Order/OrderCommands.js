@@ -68,7 +68,8 @@ export default function OrderCommands() {
                               display: 'flex',
                               justifyContent: 'center',
                               alignItems: 'center',
-                              fontSize: '2rem'
+                              fontSize: '2rem',
+                              color: 'green'
                               
                               }}  color='black'>
                           Pay
@@ -90,7 +91,8 @@ export default function OrderCommands() {
                               display: 'flex',
                               justifyContent: 'center',
                               alignItems: 'center',
-                              fontSize: '2rem'
+                              fontSize: '2rem',
+                              color: 'red'
       
       }} color='black' >
                 Void
