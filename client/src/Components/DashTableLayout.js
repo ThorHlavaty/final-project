@@ -29,7 +29,6 @@ export default function DashTableLayout() {
         history.push(`/users/table/${area.tableId}`)
     }
 
-    const pageWidth = '100vw'
 
     const layoutMap = {
         name: "my_map",
