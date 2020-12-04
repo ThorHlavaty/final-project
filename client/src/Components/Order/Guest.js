@@ -1,7 +1,6 @@
 import React from 'react'
-
 import './Guest.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import AnItem from './AnItem'
 
 
@@ -19,6 +18,7 @@ export default function Guest({id}) {
     }
   }
   
+
   return (
     <>
       <span className='guest'>

@@ -1,19 +1,25 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import ImageMapper from 'react-image-mapper'
 import LayoutImage from '../Images/TableLayout.png'
 import {  useDispatch } from 'react-redux'
-import { setTableId, setTableNum, setTotalBill } from '../redux/actions'
+import { setGuestItemsObject, setTableId, setTableNum, setTotalBill } from '../redux/actions'
 import { useHistory } from 'react-router-dom'
 import './TableLayout.css'
-import OrderHeader from './Order/OrderHeader'
 
 export default function TableLayout() {
     const dispatch = useDispatch()
     const history = useHistory()
+    const [ windowWidth, setWindowWidth ] = useState(0)
 
     useEffect(()=>{
-        dispatch(setTotalBill(0.00))
-    },[dispatch])
+        dispatch(setTotalBill(0))
+        dispatch(setGuestItemsObject({}))
+        function handleResize(){
+            setWindowWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', handleResize)
+        handleResize()
+    },[dispatch, setWindowWidth])
     
     const handleClicked = (area) => {
         dispatch(setTableId(area.tableId))
@@ -21,7 +27,6 @@ export default function TableLayout() {
         history.push(`/users/table/${area.tableId}`)
     }
 
-    const pageWidth = '100vw'
 
     const layoutMap = {
         name: "my_map",
@@ -59,7 +64,7 @@ export default function TableLayout() {
 
     return (
         <div className='layout'>
-            <ImageMapper className="" src={LayoutImage} map={layoutMap} width={900} onClick={handleClicked} imgWidth={1463}/>
+            <ImageMapper className="" src={LayoutImage} map={layoutMap} width={windowWidth} onClick={handleClicked} imgWidth={1463}/>
             {/* <OrderHeader/> */}
         </div>
     )
