@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './MobileTableNav.css'
 import axios from 'axios'
+import SignOutBar from '../../../Components/SignOutBar/SignOutBar'
 
 
 export default function MobileTableNav(props) {
@@ -29,8 +30,9 @@ export default function MobileTableNav(props) {
                         <button className='mobileTableNav--btn' onClick={()=>props.setSection(sections.id)}>Section {sections.id}</button>
                     </li>)
                )}
-                   
-              
+            <div className='bar' >
+              <SignOutBar />
+            </div>
             </ul>
         </div>
     )

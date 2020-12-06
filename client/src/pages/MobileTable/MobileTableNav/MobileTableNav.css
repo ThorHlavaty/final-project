@@ -4,14 +4,17 @@
     width: 35vw;
     color: #fff;
     border: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .mobileTableNav--list{
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    justify-content: end;
+    justify-content: center;
     padding: 10px;
+    
     
 }
 
@@ -32,4 +35,9 @@
 .mobileTableNav--btn:hover{
     background-color: #74bff8 !important;
     transition: all 0.5s;
+}
+
+.bar{
+    align-self: center !important;
+    margin-top: 20px !important;
 }
