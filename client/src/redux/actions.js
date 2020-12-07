@@ -9,6 +9,7 @@ export const SET_TABLENUM = 'SET_TABLENUM'
 export const SET_TOTALBILL = 'SET_TOTALBILL'
 export const ADD_TOTALBILL = 'ADD_TOTALBILL'
 export const REDUCE_TOTALBILL = 'REDUCE_TOTALBILL'
+export const SET_MANAGER = 'SET_MANAGER'
 
 
 
@@ -45,6 +46,15 @@ export function setGuestItemsObject(guestItemsObject) {
         type: SET_GUESTITEMSOBJECT,
         payload: {
             guestItemsObject
+        }
+    }
+}
+
+export function setManager(manager) {
+    return {
+        type: SET_MANAGER,
+        payload: {
+            manager
         }
     }
 }

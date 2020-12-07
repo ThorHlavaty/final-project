@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { ADD_TOTALBILL, REDUCE_TOTALBILL, SET_ACCORDIONINDEX, SET_CURRENTGUEST, SET_GUESTCOUNT, SET_GUESTITEMSOBJECT, SET_TABLEID, SET_TABLENUM, SET_TOTALBILL } from "./actions";
+import { ADD_TOTALBILL, REDUCE_TOTALBILL, SET_ACCORDIONINDEX, SET_CURRENTGUEST, SET_GUESTCOUNT, SET_GUESTITEMSOBJECT, SET_MANAGER, SET_TABLEID, SET_TABLENUM, SET_TOTALBILL } from "./actions";
 
 
 
@@ -20,6 +20,18 @@ function tableIdReducer(state=(0), action) {
     switch (action.type) {
         case SET_TABLEID:
             return action.payload.tableId
+        
+        
+            
+            default:
+            return state;
+    }
+}
+
+function managerReducer(state=(false), action) {
+    switch (action.type) {
+        case SET_MANAGER:
+            return action.payload.manager
         
         
             
@@ -142,5 +154,6 @@ export const rootReducer = combineReducers({
     guestItemsObject: guestItemsObjectReducer,
     tableId: tableIdReducer,
     tableNum: tableNumReducer,
-    totalBill:totalBillReducer
+    totalBill:totalBillReducer,
+    manager:managerReducer
 })
