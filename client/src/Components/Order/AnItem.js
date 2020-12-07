@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Grid } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { setTotalBill, removeItem } from '../../redux/actions'
+import { setTotalBill } from '../../redux/actions'
 import './AnItem.css'
 
 import { removeItem, addTotalBill, reduceTotalBill } from '../../redux/actions'
