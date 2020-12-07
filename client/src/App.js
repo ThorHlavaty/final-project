@@ -22,9 +22,6 @@ function App() {
 
   const {userInfo, check} = useSelector((state) => state.userSignin)
 
-  const signoutHandler =() => {
-    dispatch(signout())}
-
   useEffect(()=>{
     dispatch(checkAuth())
   },[dispatch])
@@ -37,9 +34,6 @@ function App() {
 else{
   return (
     <>
-      {/* {userInfo ? (
-      <Link to='/' onClick={signoutHandler}>Sign Out</Link>) : (<Link to='/users/login'>Login</Link>)}
- */}
 
       <Switch>
         <Route exact path='/' component={Home}/>
@@ -48,7 +42,6 @@ else{
         <PrivateRoute exact path='/users/mobile/board' component={MobileTable}/>     
         <ManagerPrivateRoute exact path='/managerDash' component={ManagerDashboard}/>
         <PrivateRoute exact path='/users/table/:id' component={Order}/>
-        {/* <PrivateRoute exact path='/users/dashboard' component={Dashboard}/> */}
       </Switch>
     </>
 

@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import {  useSelector } from 'react-redux'
 import Axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { setTotalBill } from '../../redux/actions';
+import { setGuestItemsObject, setTotalBill } from '../../redux/actions';
 
 
 
@@ -39,13 +39,22 @@ export default function OrderCommands() {
         })
         .then(res => {
           dispatch(setTotalBill(0.00))
-          history.push('/users/dashboard')
+          history.push('/users/mobile/board')
         })
         .catch(err =>{console.log(err)})
       })
     }
+
+    const handlePay =() => {
+      Axios.delete(`/api/v1/table/${tableId}`)
+      .then(res => {dispatch(setTotalBill(0.00))
+      dispatch(setGuestItemsObject({}))
+      history.push('/users/mobile/board')
+      })
+      .catch(err => console.log(err))
+    }
+
   
-    //put each item from our order object into items by guest id
   
   
   return (
@@ -73,7 +82,9 @@ export default function OrderCommands() {
                               color: 'green'
                               
                               }}  color='black'>
-                          Pay
+                          <Link onClick={handlePay}>
+                            Pay
+                          </Link>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row >
@@ -84,7 +95,7 @@ export default function OrderCommands() {
                              alignItems: 'center',
                              fontSize: '2rem'
                             }} color='black'  > 
-        <Link style={{color:'white'}} to='/users/dashboard'>          
+        <Link style={{color:'white'}} to='/users/mobile/board'>          
         Cancel
         </Link>
         </Grid.Column>

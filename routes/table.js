@@ -50,18 +50,17 @@ router.get('/:table_id', (req, res) => {
 })
 
 // Delete Table based on ID
-// URL: /api/v1/guest/:tableId
+// URL: /api/v1/table/:tableId
 router.delete('/:table_id', (req,res)=>{
-  db.Table.destroy({
+  db.Guest.destroy({
     where: {
-      id: req.params.table_id,
-      SectionId: req.user.id
+      TableId: req.params.table_id,
     }
   })
   .then(deleted => {
-    if(deleted === 1) {
+    if(deleted > 0) {
       res.status(202).json({
-        success: 'Table deleted'
+        success: 'Table cleared'
       })
     }
     else {
