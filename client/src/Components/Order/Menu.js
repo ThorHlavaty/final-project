@@ -5,7 +5,7 @@ import { Accordion, Icon } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAccordionIndex } from '../../redux/actions';
 import 'semantic-ui-css/semantic.min.css';
-
+import './Menu.css'
 
 
 
@@ -19,7 +19,7 @@ export default function Menu(props) {
   
 
   return (
-    <Accordion style={{borderBottom:'2px solid #fff'}}> 
+    <Accordion style={{borderBottom:'2px solid #fff' }}> 
     <Accordion.Title
           active={accordionIndex === props.index}
           index={props.index}
