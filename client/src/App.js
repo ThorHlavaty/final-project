@@ -45,7 +45,7 @@ else{
         <Route exact path='/' component={Home}/>
         <Route exact path='/users/register' component={Register}/>
         <Route exact path='/users/login' component={Login}/>     
-        <Route exact path='/users/mobile/board' component={MobileTable}/>     
+        <PrivateRoute exact path='/users/mobile/board' component={MobileTable}/>     
         <ManagerPrivateRoute exact path='/managerDash' component={ManagerDashboard}/>
         <PrivateRoute exact path='/users/table/:id' component={Order}/>
         {/* <PrivateRoute exact path='/users/dashboard' component={Dashboard}/> */}

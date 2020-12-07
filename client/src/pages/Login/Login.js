@@ -135,7 +135,7 @@ export default function Login() {
       if(isManager){
         history.push('/managerDash')
       }else{
-        history.push('/users/dashboard')
+        history.push('/users/mobile/board')
       }
     })
     .catch(err =>  console.log(err))
