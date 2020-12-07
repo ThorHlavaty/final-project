@@ -1,4 +1,4 @@
-.layout{
+/* .layout{
    top: 200px;
     display: flex !important;
     align-content: center !important;
@@ -13,5 +13,3 @@
 #root{
     
     /* height: 100vh */
-}
-

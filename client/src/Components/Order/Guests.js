@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
 import { Container } from 'semantic-ui-react';
+import CheckTotal from './CheckTotal';
 import Guest from './Guest';
 import './Guests.css'
 
@@ -30,6 +31,7 @@ const guestCount = useSelector(state => state.guestCount)
       {[...Array(guestCount)].map((value, index) => (
   <Guest id={index + 1} key={index} />
 ))}
+    <CheckTotal/>
     </Container>
   )
 }
