@@ -4,7 +4,7 @@ import './Login.css'
 import { Button, Form, Header } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios';
-import { signin } from '../../redux/actions';
+import { setManager, signin } from '../../redux/actions';
 import { useHistory, Link } from 'react-router-dom';
 import { MdTrackChanges } from "react-icons/md";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
@@ -133,8 +133,10 @@ export default function Login() {
     .then(res => {
       console.log(userInfo)
       if(isManager){
-        history.push('/managerDash')
+        dispatch(setManager(true))
+        history.push('/users/tables')
       }else{
+        dispatch(setManager(false))
         history.push('/users/tables')
       }
     })

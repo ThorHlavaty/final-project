@@ -39,7 +39,9 @@ export default function OrderCommands() {
         })
         .then(res => {
           dispatch(setTotalBill(0.00))
-          history.push('/users/mobile/board')
+
+          history.push('/users/tables')
+
         })
         .catch(err =>{console.log(err)})
       })
@@ -96,7 +98,9 @@ export default function OrderCommands() {
                              alignItems: 'center',
                              fontSize: '2rem'
                             }} color='black'  > 
-        <Link style={{color:'white'}} to='/users/mobile/board'>          
+
+        <Link style={{color:'white'}} to='/users/tables'>          
+
         Cancel
         </Link>
         </Grid.Column>

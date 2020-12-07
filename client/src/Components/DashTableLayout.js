@@ -26,7 +26,6 @@ export default function DashTableLayout() {
     const handleClicked = (area) => {
         dispatch(setTableId(area.tableId))
         dispatch(setTableNum(area.name))
-        history.push(`/users/table/${area.tableId}`)
     }
 
 
@@ -66,7 +65,7 @@ export default function DashTableLayout() {
 
     return (
         <div className='layout2'>
-            <ImageMapper className="" src={LayoutImage} map={layoutMap} width={windowWidth * 0.6} onClick={handleClicked} imgWidth={1463}/>
+            <ImageMapper className="" src={LayoutImage} map={layoutMap} width={windowWidth * 0.7} onClick={handleClicked} imgWidth={1463}/>
             <DashHeader/>
             <ManagerGuests/>
         </div>

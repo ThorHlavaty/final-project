@@ -32,7 +32,7 @@ app.use(cookieParser());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 app.use(
@@ -59,5 +59,7 @@ app.use('/api/v1/table', tableRouter);
 app.use('/api/v1/item', itemRouter);
 
 
-
+app.get('*', function (req, res) {  
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 module.exports = app;
