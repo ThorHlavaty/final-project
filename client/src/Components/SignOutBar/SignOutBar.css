@@ -1,0 +1,27 @@
+.SignOutBar{
+    width: 35vw;
+    height: 100%;
+    padding: 5px;
+    margin: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+}
+
+.SignOutBarBtn{
+    background-color: #000 !important;
+    width: 8rem;
+    margin: 0 !important;
+    color: #fff !important;
+    border: 1px solid white !important;
+    outline: none !important;
+    text-align: center;
+    text-decoration: none !important;
+   
+}
+.SignOutBarBtn:hover{
+    background-color: #FFF !important;
+    color: #000 !important;
+
+   
+}
