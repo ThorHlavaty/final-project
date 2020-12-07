@@ -59,5 +59,7 @@ app.use('/api/v1/table', tableRouter);
 app.use('/api/v1/item', itemRouter);
 
 
-
+app.get('*', function (req, res) {  
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 module.exports = app;
