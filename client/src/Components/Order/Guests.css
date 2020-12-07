@@ -3,6 +3,7 @@
   display: none;
 }
 
+
 h3, p{
   color: #000 !important
 }
@@ -11,4 +12,5 @@ h3, p{
   display: block;    
   max-width: 100%!important;
   margin-bottom:18px;
+
 }
