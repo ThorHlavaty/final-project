@@ -2,3 +2,13 @@
   width: "0px";
   display: none;
 }
+
+h3, p{
+  color: #000 !important
+}
+
+.ui.container {    
+  display: block;    
+  max-width: 100%!important;
+  margin-bottom:18px;
+}
