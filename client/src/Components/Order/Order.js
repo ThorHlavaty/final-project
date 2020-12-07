@@ -21,10 +21,9 @@ const content = {
     marginLeft: '0px', 
   }
 
-  //Keys seat# of each guestId at this table.
-  //Values an array that has each item that matches the guest id's price and name as an array
-
-// cancel button need
+//Keys seat# of each guestId at this table.
+//Values an array that has each item that matches the guest id's price and name as an array
+//cancel button need
 
 export default function Order() {
 const dispatch = useDispatch()

@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react'
 import { Grid } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux'
-
-import { setTotalBill, removeItem } from '../../redux/actions'
 import './AnItem.css'
-
 import { removeItem, addTotalBill, reduceTotalBill } from '../../redux/actions'
-
-
 import './Guest.css'
+
 
 export default function AnItem({shorthand, price, item, index, guest}) {
   const dispatch = useDispatch()
