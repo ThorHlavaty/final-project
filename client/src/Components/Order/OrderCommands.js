@@ -82,7 +82,7 @@ export default function OrderCommands() {
                               color: 'green'
                               
                               }}  color='black'>
-                          <Link onClick={handlePay}>
+                          <Link style={{color: 'green'}} onClick={handlePay}>
                             Pay
                           </Link>
         </Grid.Column>
