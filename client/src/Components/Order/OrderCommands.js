@@ -58,7 +58,7 @@ export default function OrderCommands() {
   
   
   return (
-    <Grid columns={2}>
+    <Grid cl columns={2}>
       <Grid.Row>
       <Grid.Column style={{border:"1px solid white",
                            display: 'flex',
@@ -79,7 +79,8 @@ export default function OrderCommands() {
                               justifyContent: 'center',
                               alignItems: 'center',
                               fontSize: '2rem',
-                              color: 'green'
+                              color: 'green',
+                              backgroundColor: '#000 !important'
                               
                               }}  color='black'>
                           <Link style={{color: 'green'}} onClick={handlePay}>

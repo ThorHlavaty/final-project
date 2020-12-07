@@ -19,6 +19,7 @@ const content = {
     display: 'flex !important',
     flexDirection:'column !important',
     alignItems:'space-between !important',
+    color: '#000 !important'
   }
 
 

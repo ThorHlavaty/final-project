@@ -14,6 +14,7 @@ import Loading from './pages/Loading/Loading';
 import Home from './pages/Home/Home';
 import ManagerDashboard from './pages/ManagerDashboard/ManagerDashboard';
 import MobileTable from './pages/MobileTable/MobileTable';
+import Tables from './Components/Tables';
 
 
 function App() {
@@ -39,7 +40,7 @@ else{
         <Route exact path='/' component={Home}/>
         <Route exact path='/users/register' component={Register}/>
         <Route exact path='/users/login' component={Login}/>     
-        <PrivateRoute exact path='/users/mobile/board' component={MobileTable}/>     
+        <PrivateRoute exact path='/users/tables' component={Tables}/>     
         <ManagerPrivateRoute exact path='/managerDash' component={ManagerDashboard}/>
         <PrivateRoute exact path='/users/table/:id' component={Order}/>
       </Switch>

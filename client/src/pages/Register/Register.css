@@ -24,7 +24,7 @@ button {
   #svg:after {
     content: "";
     position: absolute;
-    background: #35d094;
+    background: #74bff8;
     bottom: 0;
     left: 0;
     right: 0;
@@ -35,7 +35,7 @@ button {
   }
   #svg:hover{
     color:white;
-    border: 0px #35d094 solid;
+    border: 0px #74bff8 solid;
     
   }
   #svg:hover:before {
