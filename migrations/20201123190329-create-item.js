@@ -30,7 +30,8 @@ module.exports = {
         references: {
           model: 'Guests',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
       }
     });
   },
