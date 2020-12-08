@@ -42,7 +42,9 @@ else{
         <Route exact path='/users/login' component={Login}/>     
         <PrivateRoute exact path='/users/tables' component={Tables}/>     
         <ManagerPrivateRoute exact path='/managerDash' component={ManagerDashboard}/>
+
         <PrivateRoute exact path='/users/table/:id' component={Order}/>
+
       </Switch>
     </>
 
