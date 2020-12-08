@@ -28,7 +28,13 @@ router.post('/register', (req, res) => {
       .then((result) => {
         res.json({success: 'You can now log in', user:result});
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        if(err instanceof db.Sequelize.ForeignKeyConstraintError){
+        
+        } else {
+          res.status(401).send({message: 'Duplicate Name'})
+        }
+      });
   });
 });
 
@@ -50,7 +56,7 @@ router.get('/', (req, res)=>{
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err); }
-    if (!user) { return res.status(401).json({error: 'Could not log in', info}); }
+    if (!user) { return res.status(401).send({message: 'Invalid Pin'}); }
     req.login(user, () => {})
     res.json({user})
   })(req, res, next);
