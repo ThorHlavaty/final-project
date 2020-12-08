@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
 import ManagerDashboard from '../pages/ManagerDashboard/ManagerDashboard'
@@ -7,26 +7,38 @@ import TableLayout from './TableLayout'
 
 export default function Tables() {
   const manager = useSelector(state=>state.userSignin.userInfo.manager)
-  
+  const [windowWidth, setWindowWidth] = useState()
+
+  useEffect(()=>{
+    function handleResize(){
+        setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+    handleResize()
+},[ setWindowWidth])
+
+
+
   return (
-    <Grid>
-      {manager ? 
-      <>
-      <Grid.Row  only='computer tablet' style={{paddingTop:'14px', paddingBottom:'0px', paddingLeft:'14px'}}>
+    <div style={{ height:'100vh'}}>
+      {(manager && windowWidth >= 620) && 
+      
+      <div>
         <ManagerDashboard/>
-      </Grid.Row>
-      <Grid.Row only='mobile' style={{paddingTop:'14px', paddingBottom:'0px', paddingLeft:'14px'}}>
+      </div>
+      }
+      {(windowWidth < 620) && 
+      
+      <div >
         <MobileTable />  
-      </Grid.Row>
-    </> :
-      <>
-      <Grid.Row  only='computer tablet' style={{paddingTop:'14px', paddingBottom:'0px', paddingLeft:'14px'}}>
-        <TableLayout/>
-      </Grid.Row>
-      <Grid.Row only='mobile' style={{paddingTop:'14px', paddingBottom:'0px', paddingLeft:'14px'}}>
-        <MobileTable />  
-      </Grid.Row>
-    </>}
-    </Grid>
+      </div>
+      }
+      {(!manager && windowWidth >=620) && 
+      
+      <div style={{backgroundColor:'#2A2935', height:"100vh", display:'grid', placeItems:'center'}}>
+        <TableLayout />
+      </div>
+      }
+    </div>
   )
 }
