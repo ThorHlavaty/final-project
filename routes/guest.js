@@ -62,27 +62,28 @@ router.get('/:table_id', (req,res)=>{
 
 
 
-// Delete Guest Seat based on ID
-// URL: /api/v1/guest/:deleteId
-router.delete('/:delete_id', (req,res)=>{
-  db.Guest.destroy({
-    where: {
-      id: req.params.delete_id,
-    }
-  })
-  .then(deleted => {
-    if(deleted === 1) {
-      res.status(202).json({
-        success: 'Guest deleted'
-      })
-    }
-    else {
-      res.status(404).json({
-        error: 'Guest not found'
-      })
-    }
-  })
-})
+// Delete Guest Seat and all Items based on Guest ID
+// URL: /api/v1/guest/:deleteId/table
+// router.delete('/:delete_id/table', (req,res)=>{
+//   db.Guest.destroy({
+//     where: {
+//       id: req.params.delete_id,
+//     },
+//     include:[db.Table]
+//   })
+//   .then(deleted => {
+//     if(deleted === 1) {
+//       res.status(202).json({
+//         success: 'Guest deleted'
+//       })
+//     }
+//     else {
+//       res.status(404).json({
+//         error: 'Guest not found'
+//       })
+//     }
+//   })
+// })
 
 
 module.exports = router;
