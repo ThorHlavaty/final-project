@@ -198,7 +198,7 @@ export default function Login() {
                 return <option 
                           key={user.id} 
                           value={user.id}>
-                            {user.id} - {user.name}
+                          {user.name}
                        </option>
               })}
             </select>
