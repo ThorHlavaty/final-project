@@ -48,7 +48,7 @@ useEffect(()=>{
     let seatNum = res.data.Guests.reduce((prev, curr, i)=> (curr.seat > prev ? curr.seat : prev), 1)
     dispatch(setGuestCount(seatNum))
   })
-},[dispatch, tableId, id])
+}, [dispatch, id, tableId])
   
   return (
     <>

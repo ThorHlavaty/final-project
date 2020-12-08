@@ -7,6 +7,12 @@ import { useHistory } from 'react-router-dom'
 import './DashTableLayout.css'
 import DashHeader from './Order/DashHeader'
 import ManagerGuests from './ManagerGuests'
+import OrderCommands from './Order/OrderCommands'
+import { Grid } from 'semantic-ui-react'
+import OrderHeader from './Order/OrderHeader'
+import OrderHeaderMobile from './Order/OrderHeaderMobile'
+import Guests from './Order/Guests'
+
 
 export default function DashTableLayout() {
     const dispatch = useDispatch()
@@ -64,10 +70,20 @@ export default function DashTableLayout() {
     }
 
     return (
-        <div className='layout2'>
+        <div  className='layout2' style={{height:'100vh'}}>
             <ImageMapper className="" src={LayoutImage} map={layoutMap} width={windowWidth * 0.7} onClick={handleClicked} imgWidth={1463}/>
-            <DashHeader/>
-            <ManagerGuests/>
+            <div className="OrderRoot">
+   <OrderHeader/>
+    
+        
+    </div>
+        <Guests />
+        <div style={{ marginTop:'auto', marginBottom:'14px', marginRight:'14px', marginLeft:'10px'}}>
+        <OrderCommands />
+        
+      
+      
+    </div>
         </div>
     )
 }

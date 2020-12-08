@@ -1,6 +1,6 @@
 .serverBody {
   background: black;
-  max-height: 100vw !important;
+  min-height: 100vh !important;
   width: 30vw;
   display: flex;
   align-items: center;

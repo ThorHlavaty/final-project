@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Section.init({
-    number: DataTypes.INTEGER
+    number: DataTypes.INTEGER,
+    serverName: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Section',

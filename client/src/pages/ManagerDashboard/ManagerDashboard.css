@@ -1,15 +1,11 @@
-.rootPage{
-    display: flex;
-    max-height: 100vh;
+.rootPage {
+  display: flex;
+  max-height: 100vh;
 }
 
-
-.tableLayout{
-    position: absolute;
-}
-
-.servers{
-    position: relative;
-    align-self: flex-end !important;
-    right:0px !important
+.servers {
+  display: flex;
+  position: relative;
+  align-self: flex-end !important;
+  right: 0px !important;
 }

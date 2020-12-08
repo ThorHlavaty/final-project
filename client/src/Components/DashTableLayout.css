@@ -1,12 +1,11 @@
 .layout2 {
-  top: 200px;
-  justify-content: center !important;
+  display: flex;
   flex-direction: column;
   /* transform: rotate(90deg); */
   border-radius: 0px !important;
   border: none !important;
   border: 3px solid black !important;
-  max-width: 70.5vw;
+  max-width: 70.4vw;
 }
 .layout img {
   padding: 0;
@@ -14,8 +13,13 @@
   border-radius: 0px !important;
 }
 
+.layout3 {
+  justify-content: end;
+  max-width: 70.5vw;
+}
+
 @media screen and (min-width: 1145px) {
-  .layout2 {
+  .layout2 .layout3 {
     max-width: 70vw;
   }
 }
