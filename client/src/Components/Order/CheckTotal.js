@@ -9,7 +9,7 @@ export default function CheckTotal() {
     <div>
       <p>total: ${totalBill.toFixed(2)}</p>
       <p>tax: ${(totalBill * 0.07).toFixed(2)}</p>
-      <p>Grand Total: <span className='total'>${(totalBill * 1.07).toFixed(2)} </span></p>
+      <p className='total'>Grand Total: ${(totalBill * 1.07).toFixed(2)}</p>
     </div>
   )
 }
