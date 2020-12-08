@@ -51,7 +51,7 @@ export default function OrderCommands() {
       Axios.delete(`/api/v1/table/${tableId}`)
       .then(res => {dispatch(setTotalBill(0.00))
       dispatch(setGuestItemsObject({}))
-      history.push('/users/mobile/board')
+      history.push('/users/tables')
       })
       .catch(err => console.log(err))
     }
