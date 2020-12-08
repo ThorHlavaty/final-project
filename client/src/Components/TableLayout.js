@@ -32,7 +32,7 @@ export default function TableLayout() {
     },[dispatch, setWindowWidth])
     
     const handleClicked = (area) => {
-        if (sections[area.section - 1].UserId === serverId || manager){
+        if (sections[ sections.length - area.section].UserId === serverId || manager){
             dispatch(setTableId(area.tableId))
             dispatch(setTableNum(area.name))
             history.push(`/users/table/${area.tableId}`)
