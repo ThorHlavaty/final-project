@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import {  useSelector } from 'react-redux'
 import Axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { setTotalBill } from '../../redux/actions';
+import { setGuestItemsObject, setTotalBill } from '../../redux/actions';
 
 
 
@@ -39,17 +39,28 @@ export default function OrderCommands() {
         })
         .then(res => {
           dispatch(setTotalBill(0.00))
+
           history.push('/users/tables')
+
         })
         .catch(err =>{console.log(err)})
       })
     }
+
+    const handlePay =() => {
+      Axios.delete(`/api/v1/table/${tableId}`)
+      .then(res => {dispatch(setTotalBill(0.00))
+      dispatch(setGuestItemsObject({}))
+      history.push('/users/mobile/board')
+      })
+      .catch(err => console.log(err))
+    }
+
   
-    //put each item from our order object into items by guest id
   
   
   return (
-    <Grid columns={2}>
+    <Grid cl columns={2}>
       <Grid.Row>
       <Grid.Column style={{border:"1px solid white",
                            display: 'flex',
@@ -70,10 +81,13 @@ export default function OrderCommands() {
                               justifyContent: 'center',
                               alignItems: 'center',
                               fontSize: '2rem',
-                              color: 'green'
+                              color: 'green',
+                              backgroundColor: '#000 !important'
                               
                               }}  color='black'>
-                          Pay
+                          <Link style={{color: 'green'}} onClick={handlePay}>
+                            Pay
+                          </Link>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row >
@@ -84,7 +98,9 @@ export default function OrderCommands() {
                              alignItems: 'center',
                              fontSize: '2rem'
                             }} color='black'  > 
+
         <Link style={{color:'white'}} to='/users/tables'>          
+
         Cancel
         </Link>
         </Grid.Column>
