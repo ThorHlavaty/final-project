@@ -23,7 +23,7 @@ router.put('/:section_id', (req,res) => {
     UserId: user_id
   })
   .then((result) => {
-    res.json({success: 'Section number updated'})
+    res.json({success: 'Section server updated'})
   })
   .catch(err => console.log(err))
 

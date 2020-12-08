@@ -10,7 +10,8 @@ import './Guest.css'
 export default function AnItem({shorthand, price, item, index, guest}) {
   const dispatch = useDispatch()
   const totalBill = useSelector(state=>state.totalBill)
-  
+  const manager = useSelector(state=>state.userSignin.userInfo.manager)
+
   
   useEffect(()=>{
     dispatch(addTotalBill(parseFloat(price)))
@@ -18,9 +19,12 @@ export default function AnItem({shorthand, price, item, index, guest}) {
   },[ dispatch, price])
 
   const deleteItem = () =>{
-    
+    if(item.length < 3 || manager){
     dispatch(reduceTotalBill(price))
     dispatch(removeItem(index, guest, item[2] || null))
+  }else{
+    alert('You need a manager to remove this item!')
+    }
   }
 
 
