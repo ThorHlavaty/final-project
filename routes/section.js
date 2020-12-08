@@ -10,18 +10,15 @@ router.put('/:section_id', (req,res) => {
   const {user_id} = req.body
   const {section_id} = req.params
 
-
   if (!section_id) {
     res.status(404).json({error: 'Enter section number'})
   }
 
-  db.Section.update({
-    where:{
-      id: section_id
-    }
-  },{
-    UserId: user_id
-  })
+  db.Section.update(
+    {UserId: user_id}, 
+    {where:{id: section_id},
+  },
+  )
   .then((result) => {
     res.json({success: 'Section server updated'})
   })
