@@ -23,7 +23,6 @@ router.put('/:section_id', (req,res) => {
     res.json({success: 'Section server updated'})
   })
   .catch(err => console.log(err))
-
 })
 
 router.get('/', (req,res) => {  

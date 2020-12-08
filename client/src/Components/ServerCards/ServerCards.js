@@ -4,7 +4,7 @@ import './ServerCards.css'
 
 export default function ServerCards({id}) {
     const [servers, setServers] = useState([])
-    const [serverName, setServerName] = useState('Server')
+    const [serverName, setServerName] = useState(['Server', 0])
 
     useEffect(() => {
         Axios.get('/users')
@@ -13,22 +13,31 @@ export default function ServerCards({id}) {
         })
     }, [])
     
+    function handleSubmit(){
+        if (serverName[1] !== 0){
+        Axios.put(`/api/v1/section/${id}`, {user_id:serverName[1]})
+        .then(res => {
+            console.log(res)
+        })
+        }
+    }
+
     return (
         <div className='cardRoot'>
             <h2>Section {id}</h2>
             
 
             <div className="dropdown">
-            <button className="dropbtn">{serverName}</button>
+            <button className="dropbtn">{serverName[0]}</button>
             <div className="dropdown-content">
-                <a href='#'  onClick={() =>(setServerName('No Server'))}>No Server</a>
+                <a href='#'  onClick={() =>(setServerName(['No Server', 0]))}>No Server</a>
                 {servers.map(server => (
-                    <a href='#' onClick={() =>(setServerName(server.name))} key={id}>{server.name}</a>
+                    <a href='#' onClick={() =>(setServerName([server.name, server.id]))} key={id}>{server.name}</a>
                 ))}
             </div>
             </div>
             <div >
-            <button className="dropbtn">Submit</button>
+            <button className="dropbtn" onClick={()=>handleSubmit()}>Submit</button>
             </div>
         </div>
     )
