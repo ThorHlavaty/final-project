@@ -11,7 +11,6 @@ export default function MobileTableNav(props) {
     useEffect(() => {
         axios.get('/api/v1/section')
         .then(res =>{
-            console.log(res.data)
             setSectionData(res.data)
 
         })
