@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React, { useEffect, useState }  from 'react'
 import { makeStyles} from '@material-ui/core'
 import './Register.css'
 import { Button, Form, Header } from 'semantic-ui-react'
@@ -87,7 +87,6 @@ export default function Register() {
   const dispatch = useDispatch()
   const [name, setName] = useState('');
   const [pin, setPin] = useState('');
-  const [errorMessage, setErroressage] = useState(false)
 
   const [ visibility, setVisibility] = useState(true);
   const history = useHistory()
@@ -100,16 +99,22 @@ export default function Register() {
     setVisibility(!visibility)
   }
 
+  useEffect(()=>{
+    if(userRegister.userInfo){
+      dispatch(register({}))
+      return history.push('/users/login')
+
+    }
+  },[history, userRegister.userInfo])
+
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     dispatch(register(name,pin))
     .then(res => {
-      if(!errorMessage){
-        history.push('/users/register')
-      }else{
-        history.push('/users/login')
-        setName('')
-        setPin('')
+      console.log(userRegister.error)
+      if(userRegister.userInfo){
+        return history.push('/users/login')
       }
     })
     .catch(err =>  console.log(err))
@@ -129,7 +134,7 @@ export default function Register() {
     return (
         <div className={classes.root}>
             <Form onSubmit={handleFormSubmit} className={classes.form} >
-            {error && <MessageBox variant="danger">{error}</MessageBox>}
+            {error === 'Duplicate Name' && <MessageBox variant="danger">{error}</MessageBox>}
                 {/* <img className={classes.logo} src='/logo.png' alt='logo' /> */}
                 <Header className={classes.h1} as='h1'>{<MdTrackChanges/>}NADA</Header>
                 <Form.Field>
@@ -170,7 +175,7 @@ export default function Register() {
                     <label className={classes.formLabel} >Manager Pin</label>
                     <input placeholder='Pin' />
                 </Form.Field> */}
-                <Button id='svg' className={classes.button}type='submit' >Sign Up</Button>
+                <Button id='svg' className={classes.button} type='submit' >Sign Up</Button>
                 <Link to='/users/login'>Login</Link>
             </Form>
         </div>

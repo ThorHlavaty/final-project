@@ -10,7 +10,6 @@ export default function MobileTableBoard(props) {
     useEffect(() => {
         axios.get(`/api/v1/section/${props.section}/tables`)
         .then(res =>{
-        console.log(res.data)
         setSectionData(res.data)
         
     })
