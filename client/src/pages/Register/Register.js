@@ -3,10 +3,11 @@ import { makeStyles} from '@material-ui/core'
 import './Register.css'
 import { Button, Form, Header } from 'semantic-ui-react'
 import {register} from '../../redux/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { MdTrackChanges } from "react-icons/md";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { Link, useHistory} from 'react-router-dom';
+import MessageBox from '../../Components/MessageBox'
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -86,10 +87,13 @@ export default function Register() {
   const dispatch = useDispatch()
   const [name, setName] = useState('');
   const [pin, setPin] = useState('');
+  const [errorMessage, setErroressage] = useState(false)
 
   const [ visibility, setVisibility] = useState(true);
   const history = useHistory()
 
+  const userRegister = useSelector((state) => state.userRegister);
+  const {error} = userRegister;
 
   const visible = (e) =>{
     e.preventDefault()
@@ -100,9 +104,13 @@ export default function Register() {
     e.preventDefault();
     dispatch(register(name,pin))
     .then(res => {
-      history.push('/users/login')
-      setName('')
-      setPin('')
+      if(!errorMessage){
+        history.push('/users/register')
+      }else{
+        history.push('/users/login')
+        setName('')
+        setPin('')
+      }
     })
     .catch(err =>  console.log(err))
   }
@@ -120,7 +128,8 @@ export default function Register() {
 
     return (
         <div className={classes.root}>
-            <Form className={classes.form} >
+            <Form onSubmit={handleFormSubmit} className={classes.form} >
+            {error && <MessageBox variant="danger">{error}</MessageBox>}
                 {/* <img className={classes.logo} src='/logo.png' alt='logo' /> */}
                 <Header className={classes.h1} as='h1'>{<MdTrackChanges/>}NADA</Header>
                 <Form.Field>
@@ -161,7 +170,7 @@ export default function Register() {
                     <label className={classes.formLabel} >Manager Pin</label>
                     <input placeholder='Pin' />
                 </Form.Field> */}
-                <Button id='svg' className={classes.button}type='submit' onClick={handleFormSubmit}>Sign Up</Button>
+                <Button id='svg' className={classes.button}type='submit' >Sign Up</Button>
                 <Link to='/users/login'>Login</Link>
             </Form>
         </div>

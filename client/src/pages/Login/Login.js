@@ -8,6 +8,7 @@ import { signin } from '../../redux/actions';
 import { useHistory, Link } from 'react-router-dom';
 import { MdTrackChanges } from "react-icons/md";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+import MessageBox from '../../Components/MessageBox'
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -87,7 +88,7 @@ export default function Login() {
 
   const [isManager, setIsManager] = useState(false)
 
-  const {userInfo} = useSelector((state) => state.userSignin)
+  const {userInfo, error} = useSelector((state) => state.userSignin)
 
 
   const visible = (e) =>{
@@ -131,7 +132,6 @@ export default function Login() {
     e.preventDefault();
     dispatch(signin(id, pin ))
     .then(res => {
-      console.log(userInfo)
       if(isManager){
         history.push('/managerDash')
       }else{
@@ -164,7 +164,7 @@ export default function Login() {
       <div className={classes.root}>
         <Form className={classes.form} 
               onSubmit={handleFormSubmit} >
-
+          {error && <MessageBox variant="danger">{error}</MessageBox>}
           <Header className={classes.h1} 
                   as='h1'>{<MdTrackChanges />}NADA
           </Header>

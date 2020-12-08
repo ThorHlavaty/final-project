@@ -142,8 +142,8 @@ export const signin = (id, pin) => async(dispatch) => {
             localStorage.setItem("userInfo", JSON.stringify(data))
         } catch(error) {
             dispatch({ type: 'USER_SIGNIN_FAIL',
-                payload: error.response && error.response.data.error
-                ? error.response.data.error 
+                payload: error.response && error.response.data.message
+                ? error.response.data.message 
                 : error.message, 
             })
         }
