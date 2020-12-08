@@ -38,6 +38,7 @@ const useStyles = makeStyles(() => ({
         padding: '20px',
         fontWeight:'300',
         fontSize: '2rem',
+        color: '#fff !important'
     },
     title:{
         fontWeight:'500',
@@ -76,8 +77,6 @@ export default function Section2() {
                 <p className={classes.link}> Start Your Journey Here{'>'} </p>
                 </Link>
            </div>
-
-            
         </div>
        
         </>

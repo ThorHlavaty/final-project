@@ -1,5 +1,8 @@
 .total{
     background-color: #74bff8;
     border-radius: 15px;
-    padding: 2px;
+    padding: 3px;
+    color: #fff !important;
+    max-width:  9rem;
+    text-align: center;
 }

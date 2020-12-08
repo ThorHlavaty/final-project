@@ -27,11 +27,13 @@
   .footer-subscription-heading {
     margin-bottom: 24px;
     font-size: 24px;
+    color: #fff !important;
   }
   
   .footer-subscription-text {
     margin-bottom: 24px;
     font-size: 20px;
+    color: #fff !important;
   }
   
   .footer-input {

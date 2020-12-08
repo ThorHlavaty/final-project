@@ -21,7 +21,7 @@
 
 div.black.column{
   
-  
+  padding-left: 14px !important;
 }
 
 .ui.grid>.black.column, .ui.grid>.black.row, .ui.grid>.row>.black.column {
