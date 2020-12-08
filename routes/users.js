@@ -32,7 +32,7 @@ router.post('/register', (req, res) => {
         if(err instanceof db.Sequelize.ForeignKeyConstraintError){
         
         } else {
-          res.status(401).send({message: 'Name must be unique.'})
+          res.status(401).send({message: 'Duplicate Name'})
         }
       });
   });
