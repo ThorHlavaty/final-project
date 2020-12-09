@@ -29,7 +29,7 @@ export default function MobileTableNav(props) {
         <div className='mobileTableNav'>
             <ul className='mobileTableNav--list'>
                {(sectionData !== undefined) && sectionData.map((sections)=>
-                   (<li>
+                   (<li key={sections.id}>
                         <button className='mobileTableNav--btn' onClick={()=> ((serverId === sections.id || manager) ? props.setSection(sections.id): alert('This is not your section!'))}>Section {sections.id}</button>
                     </li>)
                )}
