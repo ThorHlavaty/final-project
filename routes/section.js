@@ -38,7 +38,8 @@ router.get('/:section_id/tables',(req,res)=>{
       {
         SectionId: req.params.section_id
       },
-      include:[db.Guest]
+      include:[db.Guest],
+      order:[['number', 'ASC']]
   }).then(tables =>  {
     if (tables) {
     res.json(tables)
