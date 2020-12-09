@@ -32,7 +32,7 @@ router.post('/register', (req, res) => {
         if(err instanceof db.Sequelize.ForeignKeyConstraintError){
         
         } else {
-          res.status(401).send({message: 'Duplicate Name'})
+          res.status(400).send({message: 'Duplicate Name'})
         }
       });
   });
@@ -79,7 +79,6 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
 
 // 
 router.get('/current', (req,res)=>{
-  console.log(req.isAuthenticated())
   if (!req.isAuthenticated()) {
     return res.json({});
   }

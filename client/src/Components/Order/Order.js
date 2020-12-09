@@ -41,7 +41,6 @@ useEffect(()=>{
     dispatch(setTableNum(res.data.number))
     let currentOrder = {}
     res.data.Guests.forEach(order => {
-      console.log(order.Items)
       currentOrder[order.seat] = order.Items.map(item =>[item.name, item.cost, item.id ])
     })
     dispatch(setGuestItemsObject(currentOrder))

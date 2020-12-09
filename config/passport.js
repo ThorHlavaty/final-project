@@ -12,7 +12,6 @@ module.exports = function(passport) {
       db.User.findOne({
         where: {id: id}
       }).then(user => {
-        console.log(user)
         if (!user) {
           return done(null, false, { message: 'That pin is not registered or already in use' });
         }
@@ -32,13 +31,11 @@ module.exports = function(passport) {
   );
 
   passport.serializeUser(function(user, done) {
-    console.log('Serialize', user)
     done(null, user.id);
   });
 
   passport.deserializeUser(function(id, done) {
     db.User.findByPk(id).then((user) => {
-      console.log('Deserialize', user)
       done(null, user)
     })
     .catch((err) => {

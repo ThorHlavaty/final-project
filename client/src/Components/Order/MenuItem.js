@@ -11,11 +11,11 @@ export default function MenuItem(props) {
   const currentGuest = useSelector(state=>state.currentGuest)
 
   function addItem(){
-    console.log(guestItemsObject[1])
+    
     if (currentGuest in guestItemsObject) {
       const newArray = [...guestItemsObject[currentGuest]]
       newArray.push([props.shorthand, props.price])
-      console.log(newArray)
+     
       const newObject = {...guestItemsObject}
       newObject[currentGuest] = newArray
       dispatch(setGuestItemsObject(newObject))

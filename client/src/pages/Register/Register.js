@@ -70,16 +70,7 @@ const useStyles = makeStyles(() => ({
   
     
 
-// fetch()
-// .then(response => response.json())
-// .then(data => {
-//    console.log(data)
-    
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
-   
+
 
 
 
@@ -112,7 +103,6 @@ export default function Register() {
     e.preventDefault();
     dispatch(register(name,pin))
     .then(res => {
-      console.log(userRegister.error)
       if(userRegister.userInfo){
         return history.push('/users/login')
       }

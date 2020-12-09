@@ -112,7 +112,6 @@ export const removeItem = (itemIndex, guestId, itemDBID=null) => async(dispatch)
                 guestId
             }})
         } catch(error){
-            console.log(error)
             alert('Fail To Delete Item Try Again')
         }
     } else {
