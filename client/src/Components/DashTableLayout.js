@@ -30,6 +30,7 @@ export default function DashTableLayout() {
     },[dispatch, setWindowWidth])
     
     const handleClicked = (area) => {
+        dispatch(setTotalBill(0))
         dispatch(setTableId(area.tableId))
         dispatch(setTableNum(area.name))
     }

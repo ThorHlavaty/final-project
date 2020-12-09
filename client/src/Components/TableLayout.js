@@ -6,6 +6,7 @@ import { setGuestItemsObject, setTableId, setTableNum, setTotalBill } from '../r
 import { useHistory } from 'react-router-dom'
 import './TableLayout.css'
 import Axios from 'axios'
+import SignOutBar from './SignOutBar/SignOutBar'
 
 export default function TableLayout() {
     const dispatch = useDispatch()
@@ -77,9 +78,13 @@ export default function TableLayout() {
     }
 
     return (
-        <div className='layout'>
+        <div className='layout' style={{display:'flex', flexDirection:'column', alignContent:'center'}}>
             <ImageMapper className="" src={LayoutImage} map={layoutMap} width={windowWidth} onClick={handleClicked} imgWidth={1463}/>
             {/* <OrderHeader/> */}
+            <div style={{marginLeft:'auto', marginRight:'auto'}}>
+            <SignOutBar />
+            </div>
+
         </div>
     )
 }
