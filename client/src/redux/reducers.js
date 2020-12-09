@@ -16,7 +16,7 @@ function accordionIndexReducer(state=(-1), action) {
     }
 }
 
-function tableIdReducer(state=(0), action) {
+function tableIdReducer(state=(1), action) {
     switch (action.type) {
         case SET_TABLEID:
             return action.payload.tableId

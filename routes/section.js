@@ -26,7 +26,8 @@ router.put('/:section_id', (req,res) => {
 })
 
 router.get('/', (req,res) => {  
-  db.Section.findAll()
+  db.Section.findAll({
+    order:[['number', 'ASC']]})
   .then(id => res.json(id))
   
 })
