@@ -147,11 +147,11 @@ export default function Register() {
                     <label 
                       htmlFor="pin" 
                       className={classes.formLabel} >
-                        New Pin
+                        New PIN
                     </label>
                     <div className={classes.pwBar}>
                     <input 
-                      placeholder='Pin' 
+                      placeholder='PIN' 
                       required 
                       onChange={handlePin} 
                       value={pin}
