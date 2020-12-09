@@ -18,7 +18,7 @@ export default function MobileTableBoard(props) {
 
     return (
         <div className='mobileTableBoard'>
-            {sectionData.map((table)=>(<Link to={`/users/table/${table.id}`}>
+            {sectionData.map((table)=>(<Link key={table.id} to={`/users/table/${table.id}`}>
                 
             <div className='mobileTableBoard--card' >
                 <h3 
@@ -26,7 +26,7 @@ export default function MobileTableBoard(props) {
                 > Table #{table.number}</h3>
                 <h4> {table.Guests.length} Guests</h4>
             </div> </Link>))}
-           
+        
         </div>
     )
 }

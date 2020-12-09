@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import OrderHeader from '../../Components/Order/OrderHeader'
 import Servers from '../../Components/Servers/Servers'
 import DashTableLayout from '../../Components/DashTableLayout'
 import './ManagerDashboard.css'
@@ -20,7 +19,7 @@ export default function ManagerDashboard() {
           dispatch(setTableNum(res.data.number))
           let currentOrder = {}
           res.data.Guests.forEach(order => {
-            console.log(order.Items)
+    
             currentOrder[order.seat] = order.Items.map(item =>[item.name, item.cost, item.id ])
           })
           dispatch(setGuestItemsObject(currentOrder))
@@ -38,7 +37,6 @@ export default function ManagerDashboard() {
         <div className="rootPage">
             <DashTableLayout className="tableLayout"/>
             <Servers className="servers"/>
-            {/* <OrderHeader/> */}
         </div>
         </>
     )
